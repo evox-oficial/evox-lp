@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVOX | O Futuro da Mobilidade Chegou</title>
+    <!-- Ícones do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/jpeg" href="images/Logo.jpeg">
+    <script src="js/campaign-banners-config.js?v=2"></script>
+    <script src="js/hero-config.js?v=2"></script>
+    <script src="js/models-config.js?v=2"></script>
+    <script src="js/vision-360-config.js?v=2"></script>
+    <script src="js/vision-360-manifest.js?v=1"></script>
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Painel Lateral -->
+        <aside class="side-panel">
+            <div class="side-indicator">
+                <img src="images/Logo.jpeg" alt="EVOX Logo" class="side-logo">
+            </div>
+            <div class="side-text">MOBILIDADE ELÉTRICA DE NOVA GERAÇÃO</div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/evox.oficial.br/" target="_blank" rel="noopener"><i
+                        class="fa-brands fa-instagram"></i></a>
+            </div>
+        </aside>
+
+        <!-- Container Principal -->
+        <div class="main-view">
+            <!-- Barra de Navegação Superior -->
+            <header class="top-bar">
+                <nav class="top-nav">
+                    <a href="#hero-slider" class="active">Início</a>
+                    <a href="#modelos">Modelos</a>
+                    <a href="#experiencia">Experiência</a>
+                    <a href="#tecnologia-visual">Tecnologia</a>
+                    <a href="#contato">Contato</a>
+                    <a href="#simulador">Economia</a>
+                    <a href="#especialista">Especialista</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </header>
+
+            <!-- Hero Section (O Miolo do Dashboard) -->
+            <main class="hero-dashboard">
+
+                <!-- Container do Slider -->
+                <div class="hero-slider" id="hero-slider">
+                    <!-- Os itens do slider serão injetados pelo JS -->
+                    <div class="slider-overlay"></div>
+                    <div class="hero-slider-nav" aria-label="Navegacao do banner principal">
+                        <button type="button" class="hero-slider-button prev" id="hero-slider-prev" aria-label="Banner anterior">
+                            <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <button type="button" class="hero-slider-button next" id="hero-slider-next" aria-label="Proximo banner">
+                            <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Esquerda: Títulos e Calls to Action -->
+                <div class="hero-content">
+                    <h1 id="hero-title">
+                        O FUTURO DA <br>
+                        <span class="highlight">MOBILIDADE</span>
+                        CHEGOU.
+                    </h1>
+                    <p id="hero-subtitle">Potência elétrica, autonomia inteligente e design urbano premium.</p>
+
+                    <div class="hero-actions">
+                        <a href="#contato" class="btn-solid" id="hero-btn-main">
+                            FALAR COM ESPECIALISTAS <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#tecnologia-visual" class="btn-play" id="hero-btn-secondary">
+                            <div class="icon-wrapper"><i class="fa-solid fa-play" id="hero-btn-icon"></i></div>
+                            <span id="hero-btn-text">ASSISTIR VÍDEO</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Direita: Especificações Técnicas Dinâmicas -->
+                <div class="hero-specs" id="hero-specs"></div>
+
+
+            </main>
+
+            <!-- SEÇÃO DIFERENCIAIS -->
+            <section id="diferenciais" class="diferenciais-section">
+                <div class="diferenciais-header">
+                    <h2>Por que ser <span>Elétrico?</span></h2>
+                    <p>Descubra as vantagens de pilotar o futuro com a EVOX.</p>
+                </div>
+                <div class="diferenciais-grid">
+                    <div class="dif-card">
+                        <div class="dif-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Zero Emissões</h3>
+                        <p>Preserve o meio ambiente com uma mobilidade 100% limpa, sem fumaça e sustentável.</p>
+                    </div>
+                    <div class="dif-card">
+                        <div class="dif-icon"><i class="fa-solid fa-wallet"></i></div>
+                        <h3>Economia Real</h3>
+                        <p>O custo por quilômetro rodado é até 80% menor quando comparado a motos a combustão.</p>
+                    </div>
+                    <div class="dif-card">
+                        <div class="dif-icon"><i class="fa-solid fa-volume-xmark"></i></div>
+                        <h3>Condução Silenciosa</h3>
+                        <p>Reduza a poluição sonora da sua cidade com um motor elétrico suave e ultrassilencioso.</p>
+                    </div>
+                    <div class="dif-card">
+                        <div class="dif-icon"><i class="fa-solid fa-wrench"></i></div>
+                        <h3>Baixa Manutenção</h3>
+                        <p>Diga adeus à troca de óleo, velas, filtros e correias. Manutenção extremamente simplificada.
+                        </p>
+                    </div>
+                </div>
+                <div class="diferenciais-dots" id="diferenciais-dots" aria-label="Navegacao dos diferenciais"></div>
+            </section>
+
+            <!-- SEÇÃO MODELOS -->
+            <section id="modelos" class="models-showcase">
+                <div class="showcase-header">
+                    <h2>Nossos <span>Modelos</span></h2>
+                    <p>Descubra a performance que combina com seu estilo urbano.</p>
+                </div>
+
+                <div class="showcase-grid" id="showcase-grid"></div>
+            </section>
+
+            <!-- DIVISOR WHATSAPP -->
+            <section class="whatsapp-divider">
+                <div class="whatsapp-container">
+                    <a href="https://www.instagram.com/evox.oficial.br/" target="_blank" class="btn-whatsapp-pill">
+                        FALAR COM ESPECIALISTA <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </section>
+
+            <!-- SEÇÃO EXPERIÊNCIA INTERATIVA -->
+            <section id="experiencia" class="interactive-section">
+                <div class="interactive-header">
+                    <h2>PERSONALIZE <span>SUA EVOX</span></h2>
+                    <p>Escolha o modelo, veja a cor aplicada e navegue pelas imagens da pasta selecionada.</p>
+                </div>
+
+                <div class="interactive-container">
+                    <!-- Palco do Modelo/Imagem -->
+                    <div class="interactive-stage" id="personalize-stage">
+                        <img src="images/personalize/doha/cinza/capa.jpg" alt="EVOX PERSONALIZAÇÃO"
+                            class="interactive-bike" id="personalize-bike">
+                    </div>
+
+                    <!-- Painel Lateral de Controle e Informações -->
+                    <div class="interactive-panel">
+                        <div class="panel-box controls-box">
+
+                            <div class="control-group">
+                                <label>Modelo</label>
+                                <div class="model-options" id="vision-model-options"></div>
+                            </div>
+
+                            <div class="control-group">
+                                <label>Cores</label>
+                                <div class="color-options" id="vision-color-options"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO EXPERIÊNCIA INTERATIVA -->
+            <section id="visao-360" class="interactive-section">
+                <div class="interactive-header">
+                    <h2>VISÃO <span>360°</span></h2>
+                </div>
+
+                <div class="interactive-container">
+                    <!-- Palco do Modelo/Imagem -->
+                    <div class="interactive-stage" id="vision-360-stage">
+                        <img src="images/visao-360/doha/cinza/capa.jpg" alt="EVOX 360" class="interactive-bike"
+                            id="vision-360-bike">
+                    </div>
+
+                    <!-- Painel Lateral de Controle e Informações -->
+                    <div class="interactive-panel">
+
+                        <div class="panel-box vision-box">
+                            <button type="button" class="btn-rotate" id="vision-rotate-btn">
+                                <i class="fa-solid fa-rotate-right"></i> Girar
+                            </button>
+                            <p class="vision-usage-hint">Use o botao para mostrar a proxima imagem da pasta selecionada.
+                            </p>
+                            <p class="vision-folder-hint" id="vision-folder-hint"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- SEÇÃO TECNOLOGIA EVOX VISUAL -->
+            <section id="tecnologia-visual" class="tech-visual-section">
+                <div class="tech-visual-header">
+                    <h2>Tecnologia <span>EVOX</span></h2>
+                    <p>Engenharia de ponta transformada em uma experiência visual inesquecível.</p>
+                </div>
+
+                <div class="tech-visual-grid">
+                    <!-- Bateria -->
+                    <div class="tech-visual-card">
+                        <div class="tech-anim-box">
+                            <div class="battery-anim">
+                                <div class="energy-flow"></div>
+                            </div>
+                        </div>
+                        <h3>Bateria de Grafeno</h3>
+                        <p>Mais eficiência e autonomia, com recarga prática em tomada comum.</p>
+                    </div>
+
+                    <!-- Motor Hub -->
+                    <div class="tech-visual-card">
+                        <div class="tech-anim-box">
+                            <div class="motor-anim">
+                                <div class="torque-lines"></div>
+                            </div>
+                        </div>
+                        <h3>Motor Hub 1000W</h3>
+                        <p>Aceleração instantânea para o trânsito urbano.</p>
+                    </div>
+
+                    <!-- Suspensão -->
+                    <div class="tech-visual-card">
+                        <div class="tech-anim-box">
+                            <div class="suspension-anim">
+                                <div class="spring"></div>
+                                <div class="impact-line"></div>
+                            </div>
+                        </div>
+                        <h3>Suspensão Hidráulica</h3>
+                        <p>Conforto inteligente em qualquer rua.</p>
+                    </div>
+                </div>
+                <div class="tech-visual-dots" id="tech-visual-dots" aria-label="Navegacao da tecnologia EVOX"></div>
+            </section>
+
+            <!-- SEÇÃO ENTRE EM CONTATO -->
+            <section id="contato" class="contact-section">
+                <div class="contact-container">
+                    <div class="contact-copy">
+                        <span class="contact-kicker">Atendimento EVOX</span>
+                        <h2>Entre em contato <span>conosco</span></h2>
+                        <p>Informe seu nome e telefone com DDD. Um especialista EVOX recebe seus dados no CRM e retorna
+                            para ajudar você a escolher o modelo ideal.</p>
+                        <div class="contact-benefits">
+                            <div><i class="fa-solid fa-headset"></i> Retorno consultivo</div>
+                            <div><i class="fa-solid fa-shield-halved"></i> Dados enviados com segurança</div>
+                            <div><i class="fa-solid fa-bolt"></i> Atendimento para compra e revenda</div>
+                        </div>
+                    </div>
+
+                    <div class="lead-form tally-form-card">
+                        <div class="tally-embed-shell">
+                            <iframe id="tallyLeadForm" loading="lazy" width="100%" height="320" frameborder="0"
+                                marginheight="0" marginwidth="0" title="Contato EVOX via Tally"></iframe>
+                        </div>
+                        <p class="form-status" id="tallyFormStatus" aria-live="polite"></p>
+                        <a href="https://tally.so" target="_blank" rel="noopener" class="tally-direct-link"
+                            id="tallyDirectLink">
+                            Criar formulário grátis no Tally <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO SIMULADOR DE ECONOMIA -->
+            <section id="simulador" class="calculator-section">
+                <div class="calc-header">
+                    <h2>Simulador de <span>Economia</span></h2>
+                    <p>Descubra o quanto você ganha mudando para a mobilidade elétrica hoje.</p>
+                </div>
+
+                <div class="calc-container">
+
+                    <!-- Controles do Usuário (Sliders) -->
+                    <div class="calc-inputs">
+                        <div class="range-group">
+                            <div class="range-header">
+                                <label for="sliderKm">Distância média percorrida</label>
+                                <span class="range-value"><span id="valKm">20</span> km/dia</span>
+                            </div>
+                            <input type="range" id="sliderKm" min="5" max="150" step="5" value="20"
+                                oninput="calculateEconomy()">
+                            <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Trajeto de ida e volta para o
+                                trabalho/estudos.</p>
+                        </div>
+
+                        <div class="range-group">
+                            <div class="range-header">
+                                <label for="sliderGas">Preço médio da gasolina</label>
+                                <span class="range-value">R$ <span id="valGas">6,00</span>/L</span>
+                            </div>
+                            <input type="range" id="sliderGas" min="4" max="8" step="0.1" value="6"
+                                oninput="calculateEconomy()">
+                            <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Valor usado para estimar o
+                                custo anual de uma moto a combustão.</p>
+                        </div>
+                    </div>
+
+                    <!-- Resultados de Impacto (Venda) -->
+                    <div class="calc-results">
+
+                        <!-- Economia Principal -->
+                        <div class="result-main">
+                            <h3>Sua EVOX pode economizar até</h3>
+                            <div class="big-money">R$ <span id="outEconomia">2.750</span></div>
+                            <p>por ano</p>
+                        </div>
+
+                        <!-- Cards Inferiores (Redução e Impacto) -->
+                        <div class="result-cards">
+                            <div class="res-card green">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                                <h4>Manutenção Poupada</h4>
+                                <div class="res-val" style="color: #2ecc71;">R$ <span id="outManutencao">500</span>/ano
+                                </div>
+                            </div>
+
+                            <div class="res-card" style="border-color: rgba(0, 136, 255, 0.3);">
+                                <i class="fa-solid fa-leaf"></i>
+                                <h4>CO2 Evitado</h4>
+                                <div class="res-val" style="color: var(--accent-color);"><span id="outCo2">949</span> kg
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SEÇÃO FALE COM ESPECIALISTA -->
+            <section class="faq-section" id="faq">
+                <div class="faq-container">
+                    <div class="faq-header">
+                        <span class="section-badge">Perguntas frequentes</span>
+                        <h2>Tire suas <span>principais dúvidas</span></h2>
+                        <p>Reunimos as respostas mais buscadas por quem está avaliando uma EVOX para a rotina urbana.</p>
+                    </div>
+
+                    <div class="faq-list">
+                        <article class="faq-item">
+                            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                                <span>Qual é a autonomia média de uma EVOX?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>A autonomia varia conforme o modelo, peso transportado, relevo e modo de condução, mas foi pensada para atender deslocamentos urbanos com eficiência no dia a dia.</p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                                <span>Como funciona a recarga da bateria?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>A recarga é simples e pode ser feita em tomada comum. O tempo pode variar de acordo com a bateria, mas o processo foi pensado para ser prático em casa ou no trabalho.</p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                                <span>Precisa de CNH ou emplacamento?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Isso depende da categoria, potência e enquadramento de cada modelo. Nossa equipe orienta você sobre a documentação e os requisitos aplicáveis antes da compra.</p>
+                            </div>
+                        </article>
+
+                        <article class="faq-item">
+                            <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+                                <span>A EVOX oferece garantia e suporte?</span>
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Sim. Trabalhamos com garantia e atendimento especializado para acompanhar sua experiência, esclarecer dúvidas e apoiar no pós-venda.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="especialista" class="cta-specialist-section">
+                <div class="specialist-container">
+                    <div class="specialist-content">
+                        <h2>Ainda tem <span>Dúvidas?</span></h2>
+                        <p>Nossos especialistas em micromobilidade estão prontos para te ajudar a escolher a EVOX
+                            perfeita para o seu dia a dia.</p>
+                        <a href="https://www.instagram.com/evox.oficial.br/" target="_blank" class="btn-whatsapp">
+                            <i class="fa-brands fa-instagram"></i> FALAR COM ESPECIALISTA
+                        </a>
+                    </div>
+                    <div class="specialist-image">
+                        <!-- Imagem sugerida de um atendente ou a própria moto com foco em atendimento -->
+                        <img src="images/2.jpeg" alt="Atendimento Especializado">
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEÇÃO FOOTER PREMIUM -->
+            <!-- SEÇÃO FOOTER PREMIUM -->
+            <footer class="premium-footer">
+                <div class="footer-content">
+
+                    <!-- Coluna 1: Manifesto -->
+                    <div class="footer-col manifesto-col">
+                        <img src="images/Logo.jpeg" alt="EVOX Logo" class="footer-logo">
+                        <p class="manifesto-text">
+                            Nascemos para reescrever as regras da cidade. Não seguimos o trânsito, nós o
+                            transformamos.<br>
+                            <strong>Tecnologia, design e sustentabilidade em movimento.</strong> O futuro é elétrico. O
+                            futuro é EVOX.
+                        </p>
+                        <div class="social-links-footer">
+                            <a href="https://www.instagram.com/evox.oficial.br/" target="_blank" rel="noopener"><i
+                                    class="fa-brands fa-instagram"></i></a>
+                            <a href="#contato"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#contato"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#contato"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Coluna 2: Links Rápidos -->
+                    <div class="footer-col links-col">
+                        <h4>Navegação</h4>
+                        <ul class="footer-links-list">
+                            <li><a href="#hero-slider">Início</a></li>
+                            <li><a href="#modelos">Modelos</a></li>
+                            <li><a href="#experiencia">Experiência</a></li>
+                            <li><a href="#tecnologia-visual">Tecnologia</a></li>
+                            <li><a href="#contato">Contato</a></li>
+                            <li><a href="#simulador">Economia</a></li>
+                            <li><a href="#especialista">Especialista</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Coluna 3: Suporte & Contato -->
+                    <div class="footer-col support-col">
+                        <h4>Atendimento</h4>
+                        <ul class="support-list">
+                            <li><i class="fa-solid fa-headset"></i> Assistência Oficial</li>
+                            <li><i class="fa-regular fa-envelope"></i> contato@evoxbrasil.com.br</li>
+                        </ul>
+                        <a href="https://www.instagram.com/evox.oficial.br/" target="_blank" class="btn-support-footer">
+                            <i class="fa-brands fa-instagram"></i> Falar com Especialista
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Footer Bottom / Copyright -->
+                <div class="footer-bottom">
+                    <p>&copy; 2026 EVOX Mobility. Todos os direitos reservados.</p>
+                    <div class="legal-links">
+                        <a href="termos.html">Termos de Uso</a>
+                        <a href="privacidade.html">Privacidade</a>
+                        <a href="garantia.html">Garantia</a>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Script de Lógica da Seção Interativa -->
+        <script>
+            // Lógica para Barra de Navegação Fixa (Scroll) e ScrollSpy
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.top-bar');
+                const navLinks = document.querySelectorAll('.top-nav a');
+                const sections = document.querySelectorAll('section[id]');
+
+                // Efeito de cor do header ao rolar
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // ScrollSpy: Atualiza link ativo
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (window.pageYOffset >= sectionTop - 150) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Lógica do Slider da Hero
+            let currentSlide = 0;
+            const heroDashboard = document.querySelector('.hero-dashboard');
+            const sliderContainer = document.getElementById('hero-slider');
+            const heroTitle = document.getElementById('hero-title');
+            const heroSubtitle = document.getElementById('hero-subtitle');
+            const heroBtnMain = document.getElementById('hero-btn-main');
+            const heroBtnSecondary = document.getElementById('hero-btn-secondary');
+            const heroBtnText = document.getElementById('hero-btn-text');
+            const heroBtnIcon = document.getElementById('hero-btn-icon');
+            const heroSpecsContainer = document.getElementById('hero-specs');
+            const sliderOverlay = sliderContainer.querySelector('.slider-overlay');
+            const heroSliderPrev = document.getElementById('hero-slider-prev');
+            const heroSliderNext = document.getElementById('hero-slider-next');
+            const mobileHeroMediaQuery = window.matchMedia('(max-width: 1024px)');
+            let isMobileHero = mobileHeroMediaQuery.matches;
+            let heroIntervalId = null;
+
+            function getHeroImage(config) {
+                return isMobileHero && config.mobileImage ? config.mobileImage : config.image;
+            }
+
+            function getHeroPosition(config) {
+                return isMobileHero && config.mobilePosition ? config.mobilePosition : config.desktopPosition;
+            }
+
+            function getHeroTheme(colorName) {
+                const themes = {
+                    azul: {
+                        color: '#0088ff',
+                        glow: 'rgba(0, 136, 255, 0.4)',
+                        buttonEnd: '#00c2ff',
+                        buttonShadow: 'rgba(0, 136, 255, 0.3)',
+                        hoverStart: '#0099ff',
+                        hoverEnd: '#00d2ff',
+                        hoverShadow: 'rgba(0, 136, 255, 0.5)'
+                    },
+                    verde: {
+                        color: '#2ecc71',
+                        glow: 'rgba(46, 204, 113, 0.45)',
+                        buttonEnd: '#5ee59a',
+                        buttonShadow: 'rgba(46, 204, 113, 0.3)',
+                        hoverStart: '#24b862',
+                        hoverEnd: '#6af0aa',
+                        hoverShadow: 'rgba(46, 204, 113, 0.5)'
+                    },
+                    amarelo: {
+                        color: '#e5b80b',
+                        glow: 'rgba(229, 184, 11, 0.42)',
+                        buttonEnd: '#ffd84d',
+                        buttonShadow: 'rgba(229, 184, 11, 0.3)',
+                        hoverStart: '#d1a100',
+                        hoverEnd: '#ffe27a',
+                        hoverShadow: 'rgba(229, 184, 11, 0.48)'
+                    }
+                };
+
+                return themes[colorName] || themes.azul;
+            }
+
+            function applyHeroTheme(config) {
+                if (!heroDashboard) return;
+
+                const theme = getHeroTheme(config.specialColor);
+                heroDashboard.style.setProperty('--hero-special-color', theme.color);
+                heroDashboard.style.setProperty('--hero-special-glow', theme.glow);
+                heroDashboard.style.setProperty('--hero-button-end', theme.buttonEnd);
+                heroDashboard.style.setProperty('--hero-button-shadow', theme.buttonShadow);
+                heroDashboard.style.setProperty('--hero-button-hover-start', theme.hoverStart);
+                heroDashboard.style.setProperty('--hero-button-hover-end', theme.hoverEnd);
+                heroDashboard.style.setProperty('--hero-button-hover-shadow', theme.hoverShadow);
+            }
+
+            function applyHeroImages() {
+                const slides = sliderContainer.querySelectorAll('.slider-item');
+                slides.forEach((slide, index) => {
+                    slide.style.backgroundImage = `url('${getHeroImage(window.heroSliderConfig[index])}')`;
+                    slide.style.backgroundPosition = getHeroPosition(window.heroSliderConfig[index]);
+                });
+            }
+
+            function initSlider() {
+                if (!Array.isArray(window.heroSliderConfig) || window.heroSliderConfig.length === 0) {
+                    sliderContainer.innerHTML = '';
+                    heroTitle.innerHTML = window.heroSliderSettings.fallbackTitle;
+                    heroSubtitle.style.display = 'block';
+                    heroSubtitle.textContent = window.heroSliderSettings.fallbackSubtitle;
+                    heroBtnMain.style.display = 'none';
+                    heroBtnSecondary.style.display = 'none';
+                    heroSpecsContainer.style.display = 'none';
+                    return;
+                }
+
+                if (sliderOverlay && window.heroSliderSettings.overlayCss) {
+                    sliderOverlay.style.background = window.heroSliderSettings.overlayCss;
+                }
+
+                window.heroSliderConfig.forEach((config, index) => {
+                    const slide = document.createElement('div');
+                    slide.className = `slider-item ${index === 0 ? 'active' : ''}`;
+                    slide.style.backgroundImage = `url('${getHeroImage(config)}')`;
+                    slide.style.backgroundPosition = getHeroPosition(config);
+                    sliderContainer.insertBefore(slide, sliderOverlay);
+                });
+
+                // Inicializa o primeiro slide
+                updateSlideContent(0);
+                restartHeroAutoplay();
+            }
+
+            function restartHeroAutoplay() {
+                if (heroIntervalId) {
+                    window.clearInterval(heroIntervalId);
+                }
+
+                heroIntervalId = window.setInterval(nextSlide, window.heroSliderSettings.rotationMs);
+            }
+
+            function nextSlide() {
+                const slides = document.querySelectorAll('.slider-item');
+                if (slides.length === 0) return;
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+
+                updateSlideContent(currentSlide);
+            }
+
+            function prevSlide() {
+                const slides = document.querySelectorAll('.slider-item');
+                if (slides.length === 0) return;
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+
+                updateSlideContent(currentSlide);
+            }
+
+            function updateSlideContent(index) {
+                const config = window.heroSliderConfig[index];
+                const shouldShowSecondaryOnMobile = config.showSecondaryOnMobile !== false;
+                const shouldUseCompactMobileHero = isMobileHero && !shouldShowSecondaryOnMobile;
+                const hideSecondaryButton = shouldUseCompactMobileHero;
+                const shouldShowMainButton = !config.noButtons && config.btnMain.visible !== false;
+                const shouldShowSecondaryButton = !config.noButtons && config.btnSecondary.visible !== false && !hideSecondaryButton;
+                const shouldShowSpecs = config.showSpecs && (!isMobileHero || config.showSpecsOnMobile === true) && config.specs.length > 0;
+
+                // Fade out
+                const elementsToFade = [heroTitle, heroSubtitle, heroBtnMain, heroBtnSecondary, heroSpecsContainer];
+                elementsToFade.forEach(el => el.style.opacity = 0);
+
+                setTimeout(() => {
+                    applyHeroTheme(config);
+
+                    // Atualiza Textos
+                    heroTitle.innerHTML = config.title;
+
+                    if (config.noSubtitle || shouldUseCompactMobileHero) {
+                        heroSubtitle.style.display = 'none';
+                    } else {
+                        heroSubtitle.style.display = 'block';
+                        heroSubtitle.textContent = config.subtitle;
+                    }
+
+                    // Atualiza Botões
+                    if (shouldShowMainButton) {
+                        heroBtnMain.style.display = 'flex';
+                        heroBtnMain.innerHTML = `${config.btnMain.text} <i class="${config.btnMain.icon.includes(' ') ? config.btnMain.icon : `fa-solid ${config.btnMain.icon}`}"></i>`;
+                        heroBtnMain.href = config.btnMain.link;
+                    } else {
+                        heroBtnMain.style.display = 'none';
+                    }
+
+                    if (shouldShowSecondaryButton) {
+                        heroBtnSecondary.style.display = 'flex';
+                        heroBtnText.textContent = config.btnSecondary.text;
+                        heroBtnSecondary.href = config.btnSecondary.link;
+
+                        const iconVal = config.btnSecondary.icon;
+                        heroBtnIcon.className = iconVal.includes(' ') ? iconVal : `fa-solid ${iconVal}`;
+                    } else {
+                        heroBtnSecondary.style.display = 'none';
+                    }
+
+                    // Atualiza Specs
+                    if (shouldShowSpecs) {
+                        heroSpecsContainer.style.display = 'flex';
+                        heroSpecsContainer.innerHTML = config.specs.map(spec => `
+                            <div class="spec-block">
+                                <div class="spec-icon"><i class="${spec.icon}"></i></div>
+                                <div class="spec-info">
+                                    ${spec.label ? `<span class="label">${spec.label}</span>` : ''}
+                                    <span class="value">${spec.value}</span>
+                                    <span class="sub">${spec.sub}</span>
+                                </div>
+                            </div>
+                        `).join('');
+                    } else {
+                        heroSpecsContainer.style.display = 'none';
+                    }
+
+                    // Fade in
+                    elementsToFade.forEach(el => el.style.opacity = 1);
+                }, window.heroSliderSettings.fadeMs);
+            }
+
+            // Adiciona transições
+            [heroTitle, heroSubtitle, heroBtnMain, heroBtnSecondary, heroSpecsContainer].forEach(el => {
+                el.style.transition = `opacity ${window.heroSliderSettings.fadeMs}ms ease`;
+            });
+
+            initSlider();
+
+            if (heroSliderPrev) {
+                heroSliderPrev.addEventListener('click', () => {
+                    prevSlide();
+                    restartHeroAutoplay();
+                });
+            }
+
+            if (heroSliderNext) {
+                heroSliderNext.addEventListener('click', () => {
+                    nextSlide();
+                    restartHeroAutoplay();
+                });
+            }
+
+            function handleHeroViewportChange() {
+                const nextIsMobileHero = mobileHeroMediaQuery.matches;
+                if (nextIsMobileHero === isMobileHero) return;
+                isMobileHero = nextIsMobileHero;
+                applyHeroImages();
+                updateSlideContent(currentSlide);
+            }
+
+            if (typeof mobileHeroMediaQuery.addEventListener === 'function') {
+                mobileHeroMediaQuery.addEventListener('change', handleHeroViewportChange);
+            } else {
+                window.addEventListener('resize', handleHeroViewportChange);
+            }
+
+            function renderModelShowcase() {
+                const showcaseGrid = document.getElementById('showcase-grid');
+                const models = Array.isArray(window.modelShowcaseConfig) ? window.modelShowcaseConfig.slice(0, 9) : [];
+
+                if (!showcaseGrid) return;
+
+                const visibleModels = models.filter(model => model && model.visible);
+
+                if (visibleModels.length === 0) {
+                    showcaseGrid.innerHTML = `
+                        <article class="model-showcase-card" style="--model-accent: #2ecc71; --model-accent-text: #ffffff;">
+                            <div class="showcase-info">
+                                <h3>Novos modelos em breve</h3>
+                                <p>Ative os cards em <strong>js/models-config.js</strong> para publicar os próximos lançamentos da EVOX.</p>
+                            </div>
+                        </article>
+                    `;
+                    return;
+                }
+
+                const getModelImage = (model) => Array.isArray(model.image) ? model.image[0] : model.image;
+
+                showcaseGrid.innerHTML = visibleModels.map(model => `
+                    <article class="model-showcase-card" style="--model-accent: ${model.accentColor}; --model-accent-text: ${model.accentTextColor};">
+                        <a href="${model.link}" class="showcase-img-link">
+                            <img src="${getModelImage(model)}" alt="EVOX ${model.name}" data-fallbacks='${JSON.stringify(Array.isArray(model.image) ? model.image : [model.image])}'>
+                            <div class="img-overlay">Ver Detalhes</div>
+                        </a>
+                        <div class="showcase-info">
+                            <h3>${model.name}</h3>
+                            <p>${model.description}</p>
+                            ${Array.isArray(model.colors) && model.colors.length > 0 ? `
+                                <div class="model-colors">
+                                    ${model.colors.map(color => `<span class="model-color-chip">${color}</span>`).join('')}
+                                </div>
+                            ` : ''}
+                            <a href="${model.link}" class="btn-model">${model.buttonLabel} <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </article>
+                `).join('');
+
+                showcaseGrid.querySelectorAll('img[data-fallbacks]').forEach((img) => {
+                    const fallbacks = JSON.parse(img.dataset.fallbacks || '[]');
+                    let fallbackIndex = 0;
+
+                    img.addEventListener('error', () => {
+                        fallbackIndex += 1;
+                        if (fallbackIndex < fallbacks.length) {
+                            img.src = fallbacks[fallbackIndex];
+                        }
+                    });
+                });
+            }
+
+            // Dados dos componentes para os Hotspots
+            const hotspotData = {
+                motor: {
+                    title: "Motor Hub 1000W",
+                    desc: "Motor elétrico avançado integrado diretamente na roda. Oferece torque instantâneo para ladeiras, zero manutenção periódica e pico de potência de até 1200W.",
+                    icon: "fa-solid fa-bolt"
+                },
+                bateria: {
+                    title: "Bateria de Grafeno",
+                    desc: "Tecnologia Chilwee 72V 23Ah localizada no assoalho para perfeito centro de gravidade. Maior densidade energética, vida útil prolongada e recarga simples em tomada comum, sem precisar de posto de carregamento.",
+                    icon: "fa-solid fa-battery-full"
+                },
+                freio: {
+                    title: "Sistema de Freios",
+                    desc: "Freio a disco dianteiro ventilado com tambor traseiro. Garante resposta imediata, frenagem em curtos espaços e segurança máxima em piso molhado.",
+                    icon: "fa-solid fa-circle-stop"
+                },
+                suspensao: {
+                    title: "Suspensão Hidráulica",
+                    desc: "Garfo telescópico com amortecimento hidráulico premium. Absorve os impactos do asfalto irregular garantindo uma pilotagem lisa, estável e confortável.",
+                    icon: "fa-solid fa-compress"
+                },
+                painel: {
+                    title: "Painel Digital Smart",
+                    desc: "Display de alta resolução com indicadores de carga, velocidade e odômetro. Interface intuitiva para controle total da sua EVOX em tempo real.",
+                    icon: "fa-solid fa-microchip"
+                },
+                assento: {
+                    title: "Assento Ergonômico",
+                    desc: "Estofado premium com design anatômico e encosto para o passageiro. Proporciona conforto máximo mesmo em trajetos longos pela cidade.",
+                    icon: "fa-solid fa-couch"
+                },
+                iluminacao: {
+                    title: "Full LED System",
+                    desc: "Conjunto óptico completo em LED para maior visibilidade e economia. Design agressivo que garante segurança em qualquer condição de luz.",
+                    icon: "fa-solid fa-lightbulb"
+                }
+            };
+
+            // Função para mostrar informações do Hotspot
+            function showHotspot(id, element) {
+                // Remove classe ativa de outros pontos
+                document.querySelectorAll('.hotspot').forEach(el => el.classList.remove('active'));
+                // Adiciona classe ativa no clicado
+                element.classList.add('active');
+
+                const data = hotspotData[id];
+
+                // Esconde placeholder
+                document.getElementById('info-placeholder').style.display = 'none';
+
+                // Atualiza e mostra painel de conteúdo
+                const contentPanel = document.getElementById('info-content');
+                document.getElementById('info-icon').className = data.icon;
+                document.getElementById('info-title').textContent = data.title;
+                document.getElementById('info-desc').textContent = data.desc;
+
+                contentPanel.style.display = 'block';
+
+                // Reinicia animação
+                contentPanel.style.animation = 'none';
+                contentPanel.offsetHeight; /* trigger reflow */
+                contentPanel.style.animation = 'fadeIn 0.4s ease forwards';
+            }
+
+            // Função para trocar a imagem da moto (Cores Reais)
+            function changeBikeImage(imgName, element) {
+                // Atualiza botões
+                document.querySelectorAll('.color-dot').forEach(el => el.classList.remove('active'));
+                element.classList.add('active');
+
+                // Troca a imagem
+                const bike = document.getElementById('personalize-bike');
+                bike.src = `img-detailer/${imgName}.jpeg`;
+            }
+
+
+
+            const vision360State = {
+                modelId: null,
+                colorId: null,
+                frames: [],
+                frameIndex: 0,
+                dragAccumulator: 0,
+                isPointerDown: false,
+                lastPointerX: 0
+            };
+
+            function getVision360Models() {
+                const config = window.vision360Config || {};
+                return Array.isArray(config.models) ? config.models : [];
+            }
+
+            function getVision360Model(modelId) {
+                return getVision360Models().find((model) => model.id === modelId) || null;
+            }
+
+            function getVision360ActiveModel() {
+                return getVision360Model(vision360State.modelId) || getVision360Models()[0] || null;
+            }
+
+            function getVision360ActiveColor() {
+                const model = getVision360ActiveModel();
+                if (!model || !Array.isArray(model.colors)) return null;
+                return model.colors.find((color) => color.id === vision360State.colorId) || model.colors[0] || null;
+            }
+
+            function updateVisionFolderHint() {
+                const hint = document.getElementById('vision-folder-hint');
+                if (!hint) return;
+                hint.textContent = ``;
+            }
+
+            function updatePersonalizePreview(imagePath, altText) {
+                const preview = document.getElementById('personalize-bike');
+                if (!preview || !imagePath) return;
+                preview.src = imagePath;
+                preview.alt = altText;
+            }
+
+            function getUnavailableMessage(stageId) {
+                const stage = document.getElementById(stageId);
+                if (!stage) return null;
+
+                let message = stage.querySelector('.image-unavailable');
+                if (message) return message;
+
+                message = document.createElement('div');
+                message.className = 'image-unavailable is-hidden';
+                message.setAttribute('role', 'status');
+                message.setAttribute('aria-live', 'polite');
+                message.innerHTML = `
+                    <div class="image-unavailable-icon"><i class="fa-solid fa-image"></i></div>
+                    <h3></h3>
+                    <p></p>
+                `;
+                stage.appendChild(message);
+                return message;
+            }
+
+            function setImageAvailability({ stageId, imageId, isAvailable, title, description }) {
+                const image = document.getElementById(imageId);
+                const message = getUnavailableMessage(stageId);
+                if (!image || !message) return;
+
+                image.classList.toggle('is-hidden', !isAvailable);
+                message.classList.toggle('is-hidden', isAvailable);
+
+                if (!isAvailable) {
+                    const heading = message.querySelector('h3');
+                    const text = message.querySelector('p');
+                    if (heading) heading.textContent = title;
+                    if (text) text.textContent = description;
+                }
+            }
+
+            function applyVisionImageCandidates(candidates, altText) {
+                const bike = document.getElementById('personalize-bike');
+                if (!bike || !Array.isArray(candidates) || candidates.length === 0) return;
+
+                let candidateIndex = 0;
+                bike.alt = altText;
+                bike.onerror = () => {
+                    candidateIndex += 1;
+                    if (candidateIndex < candidates.length) {
+                        bike.src = candidates[candidateIndex];
+                    }
+                };
+                bike.src = candidates[0];
+            }
+
+            function renderVision360Colors() {
+                const colorContainer = document.getElementById('vision-color-options');
+                const model = getVision360ActiveModel();
+                if (!colorContainer || !model) return;
+
+                colorContainer.innerHTML = model.colors.map((color) => `
+                    <button
+                        type="button"
+                        class="color-dot${color.id === vision360State.colorId ? ' active' : ''}"
+                        style="background: ${color.swatch};"
+                        data-color-id="${color.id}"
+                        title="${color.label}"
+                        aria-label="${color.label}"
+                    ></button>
+                `).join('');
+
+                colorContainer.querySelectorAll('[data-color-id]').forEach((button) => {
+                    button.addEventListener('click', () => {
+                        vision360State.colorId = button.dataset.colorId;
+                        renderVision360Colors();
+                        updateVision360Image();
+                    });
+                });
+            }
+
+            function renderVision360Models() {
+                const modelContainer = document.getElementById('vision-model-options');
+                const models = getVision360Models();
+                if (!modelContainer || models.length === 0) return;
+
+                modelContainer.innerHTML = models.map((model) => `
+                    <button
+                        type="button"
+                        class="model-chip${model.id === vision360State.modelId ? ' active' : ''}"
+                        data-model-id="${model.id}"
+                    >${model.label}</button>
+                `).join('');
+
+                modelContainer.querySelectorAll('[data-model-id]').forEach((button) => {
+                    button.addEventListener('click', () => {
+                        const nextModel = getVision360Model(button.dataset.modelId);
+                        vision360State.modelId = button.dataset.modelId;
+                        vision360State.colorId = nextModel && nextModel.colors[0] ? nextModel.colors[0].id : null;
+                        renderVision360Models();
+                        renderVision360Colors();
+                        updateVision360Image();
+                    });
+                });
+            }
+
+            // updatePersonalizeImage removed
+
+            // Removed old duplicate initVision360
+
+            // Função para "Girar" a Moto (Flip horizontal da imagem)
+            let isFlipped = false;
+            function rotateBike() {
+                const bike = document.getElementById('personalize-bike');
+                const hotspots = document.querySelectorAll('.hotspot');
+
+                isFlipped = !isFlipped;
+
+                if (isFlipped) {
+                    bike.style.transform = 'scaleX(-1)';
+                    // Inverte as posições dos hotspots simulando a perspectiva
+                    hotspots.forEach(h => {
+                        let currentLeft = parseFloat(h.style.left);
+                        h.style.left = (100 - currentLeft) + '%';
+                    });
+                } else {
+                    bike.style.transform = 'scaleX(1)';
+                    hotspots.forEach(h => {
+                        let currentLeft = parseFloat(h.style.left);
+                        h.style.left = (100 - currentLeft) + '%';
+                    });
+                }
+            }
+            function getVisionManifestFrames(modelId, colorId) {
+                const manifest = window.vision360Manifest || {};
+                const modelFrames = manifest[modelId] || {};
+                const colorFrames = modelFrames[colorId];
+                if (Array.isArray(colorFrames)) return colorFrames;
+                if (typeof colorFrames === 'string' && colorFrames) return [colorFrames];
+                return [];
+            }
+
+            async function getVisionDirectoryFrames(folderPath) {
+                if (!folderPath) return [];
+
+                try {
+                    const response = await fetch(`${folderPath}/`, { cache: 'no-store' });
+                    const contentType = response.headers.get('content-type') || '';
+
+                    if (!response.ok || !contentType.includes('text/html')) {
+                        return [];
+                    }
+
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const imagePaths = [...doc.querySelectorAll('a[href]')]
+                        .map((anchor) => anchor.getAttribute('href'))
+                        .filter((href) => typeof href === 'string' && /\.(avif|gif|jpe?g|png|svg|webp)$/i.test(href))
+                        .map((href) => `${folderPath}/${decodeURIComponent(href.split('/').pop() || '')}`);
+
+                    return [...new Set(imagePaths)].sort((first, second) => first.localeCompare(second, 'pt-BR', { numeric: true, sensitivity: 'base' }));
+                } catch (error) {
+                    return [];
+                }
+            }
+
+            function canLoadImage(imagePath) {
+                return new Promise((resolve) => {
+                    if (!imagePath) {
+                        resolve(false);
+                        return;
+                    }
+
+                    const image = new Image();
+                    image.onload = () => resolve(true);
+                    image.onerror = () => resolve(false);
+                    const separator = imagePath.includes('?') ? '&' : '?';
+                    image.src = `${imagePath}${separator}check=${Date.now()}`;
+                });
+            }
+
+            async function getExistingVisionFrames(candidates) {
+                if (!Array.isArray(candidates) || candidates.length === 0) return [];
+
+                const results = await Promise.all(
+                    candidates.map(async (candidate) => ({
+                        candidate,
+                        exists: await canLoadImage(candidate)
+                    }))
+                );
+
+                return results
+                    .filter((result) => result.exists)
+                    .map((result) => result.candidate);
+            }
+
+            function getVisionFallbackFrames(color) {
+                return Array.isArray(color?.frameCandidates) ? color.frameCandidates : [];
+            }
+
+            function renderVisionFrame(frameIndex) {
+                const bike = document.getElementById('vision-360-bike');
+                if (!bike || !Array.isArray(vision360State.frames) || vision360State.frames.length === 0) return;
+
+                const safeIndex = ((frameIndex % vision360State.frames.length) + vision360State.frames.length) % vision360State.frames.length;
+                vision360State.frameIndex = safeIndex;
+                bike.src = vision360State.frames[safeIndex];
+            }
+
+            function rotateVision360() {
+                if (!Array.isArray(vision360State.frames) || vision360State.frames.length === 0) return;
+                renderVisionFrame(vision360State.frameIndex + 1);
+            }
+
+            async function updateVision360Image() {
+                const model = getVision360ActiveModel();
+                const color = getVision360ActiveColor();
+                const personalizeBike = document.getElementById('personalize-bike');
+
+                if (model && color && personalizeBike) {
+                    const displayName = `EVOX ${model.label} ${color.label}`;
+                    const unavailableTitle = `${model.label} ${color.label} disponível`;
+                    const unavailableDescription = 'Temos este modelo nesta cor, mas ainda nao temos imagens cadastradas. As fotos entram aqui assim que forem adicionadas na pasta correta.';
+
+                    const personalizeImages = await getExistingVisionFrames(color.imageCandidates);
+                    const personalizeImage = personalizeImages[0];
+
+                    setImageAvailability({
+                        stageId: 'personalize-stage',
+                        imageId: 'personalize-bike',
+                        isAvailable: Boolean(personalizeImage),
+                        title: unavailableTitle,
+                        description: unavailableDescription
+                    });
+
+                    if (personalizeImage) {
+                        updatePersonalizePreview(personalizeImage, displayName);
+                    }
+                }
+
+                // --- 360 VIEWER: INDEPENDENT OF MODEL/COLOR ---
+                updateVisionFolderHint();
+                const bike360 = document.getElementById('vision-360-bike');
+                const rotateButton = document.getElementById('vision-rotate-btn');
+                if (!bike360) return;
+
+                // Candidate frames for 360 viewer (assuming up to 36 images)
+                const base360Path = 'images/visao-360';
+                const candidates360 = [];
+                for (let i = 1; i <= 36; i++) {
+                    candidates360.push(`${base360Path}/${i}.png`);
+                    candidates360.push(`${base360Path}/${i}.jpg`);
+                    candidates360.push(`${base360Path}/${String(i).padStart(2, '0')}.png`);
+                    candidates360.push(`${base360Path}/${String(i).padStart(2, '0')}.jpg`);
+                }
+
+                let directoryFrames360 = await getVisionDirectoryFrames(base360Path);
+                let frames360 = directoryFrames360.length > 0 ? directoryFrames360 : await getExistingVisionFrames(candidates360);
+
+                vision360State.frames = [...new Set(frames360)].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+                vision360State.frameIndex = 0;
+
+                if (vision360State.frames.length > 0) {
+                    if (rotateButton) rotateButton.disabled = false;
+                    setImageAvailability({
+                        stageId: 'vision-360-stage',
+                        imageId: 'vision-360-bike',
+                        isAvailable: true,
+                        title: '',
+                        description: ''
+                    });
+                    renderVisionFrame(0);
+                } else {
+                    if (rotateButton) rotateButton.disabled = true;
+                    setImageAvailability({
+                        stageId: 'vision-360-stage',
+                        imageId: 'vision-360-bike',
+                        isAvailable: false,
+                        title: 'Imagens indisponiveis',
+                        description: 'Ainda nao temos imagens 360 cadastradas na pasta principal.'
+                    });
+                }
+            }
+
+            function initVision360() {
+                const config = window.vision360Config || {};
+                const models = getVision360Models();
+                const rotateButton = document.getElementById('vision-rotate-btn');
+                if (models.length === 0) return;
+
+                const initialModel = getVision360Model(config.defaultModel) || models[0];
+                vision360State.modelId = initialModel.id;
+                vision360State.colorId = initialModel.colors[0] ? initialModel.colors[0].id : null;
+                vision360State.frames = [];
+                vision360State.frameIndex = 0;
+
+                renderVision360Models();
+                renderVision360Colors();
+
+                if (rotateButton && rotateButton.dataset.bound !== 'true') {
+                    rotateButton.addEventListener('click', rotateVision360);
+                    rotateButton.dataset.bound = 'true';
+                }
+
+                updateVision360Image();
+            }
+
+            // --- FORMULÁRIO TALLY ---
+            const TALLY_FORM_ID = 'MevGzX';
+
+            function initTallyForm() {
+                const iframe = document.getElementById('tallyLeadForm');
+                const status = document.getElementById('tallyFormStatus');
+                const directLink = document.getElementById('tallyDirectLink');
+
+                if (!iframe || !status || !directLink) return;
+
+                if (!TALLY_FORM_ID) {
+                    iframe.style.display = 'none';
+                    status.textContent = 'Integração pronta. Crie o formulário no Tally e informe o ID para publicar aqui.';
+                    return;
+                }
+
+                const tallyUrl = `https://tally.so/embed/${TALLY_FORM_ID}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&origem=site-evox`;
+                iframe.dataset.tallySrc = tallyUrl;
+                directLink.href = `https://tally.so/r/${TALLY_FORM_ID}`;
+                directLink.innerHTML = 'Abrir formulário em nova aba <i class="fa-solid fa-arrow-up-right-from-square"></i>';
+                status.textContent = 'Carregando formulário seguro do Tally...';
+
+                const loadEmbeds = () => {
+                    if (typeof Tally !== 'undefined') {
+                        Tally.loadEmbeds();
+                    } else {
+                        iframe.src = iframe.dataset.tallySrc;
+                    }
+                    status.textContent = '';
+                };
+
+                if (document.querySelector('script[src="https://tally.so/widgets/embed.js"]')) {
+                    loadEmbeds();
+                    return;
+                }
+
+                const script = document.createElement('script');
+                script.src = 'https://tally.so/widgets/embed.js';
+                script.async = true;
+                script.onload = loadEmbeds;
+                script.onerror = loadEmbeds;
+                document.body.appendChild(script);
+            }
+
+            // --- SIMULADOR DE ECONOMIA ---
+            function calculateEconomy() {
+                // Pega valores
+                const kmPorDia = parseInt(document.getElementById('sliderKm').value);
+                const precoGasolina = parseFloat(document.getElementById('sliderGas').value);
+
+                // Atualiza Label UI
+                document.getElementById('valKm').innerText = kmPorDia;
+                document.getElementById('valGas').innerText = precoGasolina.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                // Lógica
+                const kmAnual = kmPorDia * 365;
+
+                // Custo elétrico = ~R$ 0,025/km (Assumindo recarga de 1.6kWh ~R$ 1,40 e autonomia de 55km)
+                const custoEletricoPorKm = 0.025;
+
+                // Estimativa de moto a combustão: quanto mais roda, maior o gasto com gasolina.
+                const consumoGasolinaKmPorLitro = 35;
+                const custoGasolinaPorKm = precoGasolina / consumoGasolinaKmPorLitro;
+
+                // Economia de Combustível
+                let economiaCombustivel = (custoGasolinaPorKm - custoEletricoPorKm) * kmAnual;
+                if (economiaCombustivel < 0) economiaCombustivel = 0; // Prevenção
+
+                // Manutenção
+                // Assumindo ~R$ 600/ano combustão vs R$ 100 elétrica
+                const economiaManutencao = 500;
+
+                // Economia Total Anual
+                const economiaTotal = economiaCombustivel + economiaManutencao;
+
+                // CO2 (Uma moto combustão emite aprox. 130g de CO2 por km rodado)
+                const co2Evitado = Math.round(kmAnual * 0.13); // em kg
+
+                // Formatar os números na tela
+                const brlFormato = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+                document.getElementById('outEconomia').innerText = brlFormato.format(economiaTotal);
+                document.getElementById('outManutencao').innerText = brlFormato.format(economiaManutencao);
+                document.getElementById('outCo2').innerText = brlFormato.format(co2Evitado);
+            }
+
+            // Initialize Simulator
+            window.addEventListener('DOMContentLoaded', () => {
+                renderModelShowcase();
+                initDiferenciaisSlider();
+                initTechVisualSlider();
+                initTallyForm();
+                initVision360();
+                calculateEconomy();
+            });
+
+            function initDiferenciaisSlider() {
+                initMobileCardSlider({
+                    gridSelector: '.diferenciais-grid',
+                    cardSelector: '.dif-card',
+                    dotsSelector: '#diferenciais-dots',
+                    dotClassName: 'diferenciais-dot',
+                    ariaLabelPrefix: 'Ir para diferencial'
+                });
+            }
+
+            function initTechVisualSlider() {
+                initMobileCardSlider({
+                    gridSelector: '.tech-visual-grid',
+                    cardSelector: '.tech-visual-card',
+                    dotsSelector: '#tech-visual-dots',
+                    dotClassName: 'tech-visual-dot',
+                    ariaLabelPrefix: 'Ir para tecnologia'
+                });
+            }
+
+            function initMobileCardSlider({
+                gridSelector,
+                cardSelector,
+                dotsSelector,
+                dotClassName,
+                ariaLabelPrefix
+            }) {
+                const mediaQuery = window.matchMedia('(max-width: 768px)');
+                const grid = document.querySelector(gridSelector);
+                const cards = grid ? Array.from(grid.querySelectorAll(cardSelector)) : [];
+                const dotsContainer = document.querySelector(dotsSelector);
+
+                if (!grid || !dotsContainer || cards.length === 0) return;
+
+                let dots = [];
+                let scrollTimeout;
+
+                function setActiveDot(index) {
+                    dots.forEach((dot, dotIndex) => {
+                        dot.classList.toggle('active', dotIndex === index);
+                        dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false');
+                    });
+                }
+
+                function getClosestCardIndex() {
+                    const gridLeft = grid.getBoundingClientRect().left;
+                    let closestIndex = 0;
+                    let closestDistance = Number.POSITIVE_INFINITY;
+
+                    cards.forEach((card, index) => {
+                        const distance = Math.abs(card.getBoundingClientRect().left - gridLeft);
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestIndex = index;
+                        }
+                    });
+
+                    return closestIndex;
+                }
+
+                function scrollToCard(index) {
+                    cards[index].scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest',
+                        inline: 'start'
+                    });
+                }
+
+                function buildDots() {
+                    dotsContainer.innerHTML = '';
+                    dots = cards.map((_, index) => {
+                        const dot = document.createElement('button');
+                        dot.type = 'button';
+                        dot.className = dotClassName;
+                        dot.setAttribute('aria-label', `${ariaLabelPrefix} ${index + 1}`);
+                        dot.setAttribute('aria-current', index === 0 ? 'true' : 'false');
+                        dot.addEventListener('click', () => scrollToCard(index));
+                        dotsContainer.appendChild(dot);
+                        return dot;
+                    });
+                    setActiveDot(0);
+                }
+
+                function syncSliderState() {
+                    if (!mediaQuery.matches) {
+                        dotsContainer.innerHTML = '';
+                        dots = [];
+                        return;
+                    }
+
+                    if (dots.length !== cards.length) {
+                        buildDots();
+                    }
+
+                    setActiveDot(getClosestCardIndex());
+                }
+
+                grid.addEventListener('scroll', () => {
+                    if (!mediaQuery.matches) return;
+                    window.clearTimeout(scrollTimeout);
+                    scrollTimeout = window.setTimeout(() => {
+                        setActiveDot(getClosestCardIndex());
+                    }, 60);
+                }, { passive: true });
+
+                syncSliderState();
+
+                if (typeof mediaQuery.addEventListener === 'function') {
+                    mediaQuery.addEventListener('change', syncSliderState);
+                } else {
+                    window.addEventListener('resize', syncSliderState);
+                }
+            }
+            // --- FAQ ACCORDION LOGIC ---
+            function toggleFaq(button) {
+                const parent = button.parentElement;
+
+                // Fecha todos os outros antes de abrir o novo (opcional, deixa a interface mais limpa)
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== parent) {
+                        item.classList.remove('active');
+                        const itemButton = item.querySelector('.faq-question');
+                        if (itemButton) itemButton.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                // Alterna o que foi clicado
+                parent.classList.toggle('active');
+                button.setAttribute('aria-expanded', parent.classList.contains('active') ? 'true' : 'false');
+            }
+
+        </script>
+</body>
+
+</html>

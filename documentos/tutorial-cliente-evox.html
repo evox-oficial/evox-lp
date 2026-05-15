@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial do Cliente EVOX</title>
+  <style>
+    :root {
+      --bg: #071019;
+      --panel: #0d1824;
+      --soft: #122131;
+      --text: #f4f7fb;
+      --muted: #8da0b8;
+      --line: #223447;
+      --blue: #0c8cff;
+      --green: #2ecc71;
+      --yellow: #e5b80b;
+      --red: #e74c3c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #09121c, #071019);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 42px 40px 80px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 0 20px;
+      padding: 0;
+      color: var(--muted);
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      color: #d8ecff;
+      background: rgba(12, 140, 255, .1);
+      padding: 2px 6px;
+      border-radius: 6px;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(12, 140, 255, .13), rgba(18, 33, 49, .94));
+      border-radius: 26px;
+      padding: 28px 30px;
+      margin-bottom: 26px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .brand img {
+      width: 54px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 13px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255, 255, 255, .04);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 7px 13px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .sec {
+      margin-top: 22px;
+      padding: 24px 26px;
+      border-radius: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .sec.alt {
+      background: var(--soft);
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid rgba(255, 255, 255, .07);
+      background: rgba(255, 255, 255, .03);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .path {
+      display: inline-block;
+      margin: 7px 0 9px;
+      padding: 8px 11px;
+      border-radius: 11px;
+      background: rgba(12, 140, 255, .1);
+      border: 1px solid rgba(12, 140, 255, .22);
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      color: #d8ecff;
+      word-break: break-word;
+    }
+
+    .call {
+      margin-top: 13px;
+      padding: 13px 15px;
+      border-radius: 14px;
+      border-left: 4px solid var(--blue);
+      background: rgba(12, 140, 255, .09);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .call.g {
+      border-left-color: var(--green);
+      background: rgba(46, 204, 113, .08);
+    }
+
+    .call.y {
+      border-left-color: var(--yellow);
+      background: rgba(229, 184, 11, .09);
+    }
+
+    .call.r {
+      border-left-color: var(--red);
+      background: rgba(231, 76, 60, .09);
+    }
+
+    /* steps numerados */
+    .steps {
+      list-style: none;
+      margin: 14px 0 0;
+      padding: 0;
+      counter-reset: s;
+    }
+
+    .steps>li {
+      counter-increment: s;
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .steps>li::before {
+      content: counter(s);
+      min-width: 28px;
+      height: 28px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .steps>li strong {
+      color: var(--text);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* bloco de código editável */
+    .codeblock {
+      margin: 10px 0;
+      padding: 14px 16px;
+      background: #05101a;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #c9dff5;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .codeblock .hl {
+      background: rgba(229, 184, 11, .18);
+      color: #ffe87a;
+      border-radius: 4px;
+      padding: 0 3px;
+    }
+
+    .codeblock .cm {
+      color: #4a6a82;
+    }
+
+    .mini-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 11px;
+    }
+
+    .mini-table th,
+    .mini-table td {
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      padding: 9px 0;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .mini-table th {
+      width: 160px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .mini-table td {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 18px 0;
+    }
+
+    .footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        color: #111;
+      }
+
+      .page {
+        max-width: none;
+        padding: 20px 24px 40px;
+      }
+
+      .hero,
+      .sec,
+      .sec.alt,
+      .card,
+      .call,
+      .call.g,
+      .call.y,
+      .call.r {
+        background: #fff !important;
+        color: #111 !important;
+        border-color: #d8dee6 !important;
+      }
+
+      p,
+      li,
+      .mini-table td,
+      .footer {
+        color: #333 !important;
+      }
+
+      .badge {
+        color: #111;
+        border-color: #d8dee6;
+        background: #f5f7fa;
+      }
+
+      .path,
+      .codeblock {
+        background: #f3f8fd !important;
+        border-color: #cfe1f3 !important;
+        color: #0b4a7e !important;
+      }
+
+      code {
+        background: #eef4fb;
+        color: #0b4a7e;
+      }
+
+      .steps>li::before {
+        background: #0c8cff;
+      }
+
+      .steps>li {
+        color: #333;
+      }
+
+      .codeblock .hl {
+        background: #fef9c3;
+        color: #7c5b00;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="brand">
+        <img src="../images/Logo.jpeg" alt="Logo EVOX">
+        <div>
+          <h1>Tutorial do Cliente<br>EVOX</h1>
+          <p>Guia detalhado para alterar o conteúdo do site diretamente pelo GitHub, sem precisar de programa adicional.
+          </p>
+        </div>
+      </div>
+      <p>Este documento explica passo a passo como criar sua conta no GitHub, acessar o repositório e editar cada tipo
+        de conteúdo do site EVOX.</p>
+      <div class="badge-row">
+        <span class="badge">GitHub</span>
+        <span class="badge">Banners</span>
+        <span class="badge">Modelos</span>
+        <span class="badge">Fotos</span>
+        <span class="badge">Textos</span>
+        <span class="badge">Formulário Tally</span>
+        <span class="badge">Páginas Legais</span>
+      </div>
+    </section>
+
+    <!-- ===== SEÇÃO 1 — O QUE PODE ALTERAR ===== -->
+    <section class="sec">
+      <h2>1. O que você pode alterar</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>✅ Alterações seguras</h3>
+          <ul>
+            <li>Banners da home (texto, imagem, cor, botões)</li>
+            <li>Modelos visíveis na vitrine da home</li>
+            <li>Fotos de capa e galeria dos modelos</li>
+            <li>Imagens dos banners (upload de arquivo)</li>
+            <li>Link do formulário Tally</li>
+            <li>Páginas legais (termos, privacidade, garantia)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>⚠️ Alterações com atenção</h3>
+          <ul>
+            <li>Textos e especificações de DOHA e VIENNA</li>
+            <li>Páginas dos modelos futuros (modelo-03 a 09)</li>
+            <li>Textos institucionais do <code>index.html</code></li>
+            <li>ID do formulário Tally no <code>index.html</code></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SEÇÃO 2 — CRIAR CONTA GITHUB ===== -->
+    <section class="sec alt">
+      <h2>2. Criando sua conta no GitHub</h2>
+      <p>O GitHub é onde os arquivos do site ficam guardados. Você precisa de uma conta gratuita para poder editar.</p>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>Abra o site do GitHub</strong>
+            No navegador, acesse: <code>https://github.com</code>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Clique em "Sign up" — botão no canto superior direito</strong>
+            Será aberta a tela de cadastro.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Preencha seu e-mail e clique em "Continue"</strong>
+            Use um e-mail que você acessa com frequência.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Crie uma senha e clique em "Continue"</strong>
+            Mínimo de 8 caracteres, com letras e números.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Escolha um nome de usuário e clique em "Continue"</strong>
+            Exemplo: <code>evox-marketing</code> ou <code>evox-cliente</code>. Esse nome vai aparecer no histórico de
+            edições.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Resolva o captcha (quebra-cabeça visual) e clique em "Create account"</strong>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Verifique seu e-mail</strong>
+            O GitHub vai enviar um código de 6 dígitos. Copie e cole na tela do GitHub para ativar a conta.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Pule as perguntas opcionais clicando em "Skip personalization"</strong>
+            Não é necessário preencher preferências.
+          </div>
+        </li>
+      </ol>
+      <div class="call g">Conta criada! O GitHub é gratuito e não precisa de cartão de crédito.</div>
+    </section>
+
+    <!-- ===== SEÇÃO 3 — ACESSAR O REPOSITÓRIO ===== -->
+    <section class="sec">
+      <h2>3. Acessando o repositório do site EVOX</h2>
+      <p>Depois de criar a conta, você precisa ser adicionado como colaborador pelo desenvolvedor. Envie seu nome de
+        usuário do GitHub para ele antes de continuar.</p>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>Faça login no GitHub</strong>
+            Acesse <code>https://github.com</code>, clique em "Sign in" e informe e-mail e senha.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Acesse o repositório do site</strong>
+            Digite o endereço abaixo na barra do navegador:
+            <div class="path">https://github.com/renan-barreto4/evox</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Você verá a lista de pastas e arquivos do site</strong>
+            É a mesma estrutura do site: <code>js/</code>, <code>modelos/</code>, <code>images/</code>,
+            <code>img-slider/</code> etc.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Para entrar em uma pasta, clique no nome dela</strong>
+            Para voltar, clique no nome do repositório no topo ou no botão de voltar do navegador.
+          </div>
+        </li>
+      </ol>
+
+      <div class="call">Se ao clicar no lápis de edição aparecer a mensagem "You must be on a branch to edit a file",
+        avise o desenvolvedor — ele precisa te adicionar como colaborador com permissão de escrita.</div>
+    </section>
+
+    <!-- ===== SEÇÃO 4 — COMO EDITAR ARQUIVO DE TEXTO ===== -->
+    <section class="sec alt">
+      <h2>4. Como editar qualquer arquivo de texto pelo GitHub</h2>
+      <p>Este processo se repete para todos os arquivos editáveis: banners, modelos, textos, páginas legais etc.</p>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>Navegue até o arquivo desejado</strong>
+            Clique nas pastas para entrar nelas até chegar ao arquivo.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Clique no ícone de lápis ✏️ ("Edit this file")</strong>
+            Fica no canto superior direito da área de exibição do arquivo, junto com outros ícones.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>O editor de texto vai abrir</strong>
+            Você pode clicar em qualquer parte do texto para posicionar o cursor e digitar normalmente.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Faça apenas a alteração necessária</strong>
+            Não apague chaves <code>{ }</code>, colchetes <code>[ ]</code>, vírgulas ou aspas que não fazem parte do
+            texto visível.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Role a página até o final — seção "Commit changes"</strong>
+            Você verá um campo de mensagem.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Escreva uma descrição curta do que mudou</strong>
+            Exemplos: <em>"Atualiza banner Dia das Mães"</em>, <em>"Ativa modelo CLOUD na home"</em>, <em>"Corrige texto
+              da privacidade"</em>.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Clique no botão verde "Commit changes"</strong>
+            A alteração é salva. O site atualiza automaticamente em poucos segundos.
+          </div>
+        </li>
+      </ol>
+
+      <div class="call y"><strong>Dica de segurança:</strong> antes de editar, copie o conteúdo atual para um bloco de
+        notas. Se algo der errado, você consegue restaurar.</div>
+    </section>
+
+    <!-- ===== SEÇÃO 5 — BANNERS DA HOME ===== -->
+    <section class="sec">
+      <h2>5. Editando os banners da home</h2>
+      <p>Todos os banners são controlados por um único arquivo. Abra-o pelo GitHub assim:</p>
+      <div class="path">js / campaign-banners-config.js</div>
+      <p style="margin-top:10px;">Use o lápis ✏️ para editar (siga os passos da Seção 4). O arquivo tem 4 banners. Cada
+        banner começa com <code>{</code> e termina com <code>},</code>.</p>
+
+      <div class="divider"></div>
+      <h3>5.1 — Ativar ou desativar um banner</h3>
+      <p>Cada banner tem a linha <code>ativo: true</code> ou <code>ativo: false</code>. Altere apenas esse valor.</p>
+      <div class="codeblock"><span class="cm">// Para MOSTRAR o banner:</span>
+        <span class="hl">ativo: true,</span>
+
+        <span class="cm">// Para ESCONDER o banner:</span>
+        <span class="hl">ativo: false,</span>
+      </div>
+
+      <div class="divider"></div>
+      <h3>5.2 — Trocar o texto do título</h3>
+      <p>O título aceita uma quebra de linha com <code>&lt;br&gt;</code> e destaque em cor especial com a tag
+        <code>&lt;span class="highlight"&gt;</code>.</p>
+      <div class="codeblock"><span class="cm">// Título simples (uma linha):</span>
+        titulo: '<span class="hl">PROMOÇÃO DE LANÇAMENTO</span>',
+
+        <span class="cm">// Título com destaque colorido e quebra de linha:</span>
+        titulo: 'PROMOÇÃO DE &lt;br&gt;&lt;span class="highlight"&gt;<span class="hl">LANÇAMENTO</span>&lt;/span&gt;',
+      </div>
+      <div class="call">A palavra dentro de <code>&lt;span class="highlight"&gt;...&lt;/span&gt;</code> vai aparecer na
+        cor especial definida em <code>corEspecial</code>.</div>
+
+      <div class="divider"></div>
+      <h3>5.3 — Trocar o subtítulo</h3>
+      <div class="codeblock">subtitulo: '<span class="hl">Novo texto explicativo do banner aqui.</span>',</div>
+      <p>Para <strong>esconder</strong> o subtítulo completamente:</p>
+      <div class="codeblock">esconderSubtitulo: <span class="hl">true</span>,</div>
+
+      <div class="divider"></div>
+      <h3>5.4 — Mudar a cor especial do banner</h3>
+      <p>Só existem três valores permitidos:</p>
+      <div class="codeblock">corEspecial: '<span class="hl">azul</span>', <span class="cm">// destaques em azul</span>
+        corEspecial: '<span class="hl">verde</span>', <span class="cm">// destaques em verde</span>
+        corEspecial: '<span class="hl">amarelo</span>', <span class="cm">// destaques em dourado</span></div>
+      <div class="call r">Não use outras palavras. Se escrever algo diferente, a cor especial não vai funcionar.</div>
+
+      <div class="divider"></div>
+      <h3>5.5 — Trocar a imagem de fundo do banner</h3>
+      <p>As imagens dos banners ficam na pasta <code>img-slider/</code>. Os arquivos atuais são:<br>
+        Desktop: <code>1.jpeg</code>, <code>2.jpeg</code>, <code>3.jpeg</code>, <code>4.jpeg</code>,
+        <code>5.jpeg</code><br>
+        Mobile: <code>1-mobile.jpeg</code>, <code>2-mobile.jpeg</code>, <code>3-mobile.jpeg</code>,
+        <code>4-mobile.jpeg</code></p>
+      <p><strong>Para trocar a imagem de um banner:</strong></p>
+      <ol>
+        <li>Faça o upload da nova imagem na pasta <code>img-slider/</code> (veja Seção 7 para como enviar imagens).</li>
+        <li>Abra o <code>campaign-banners-config.js</code> e atualize o caminho:</li>
+      </ol>
+      <div class="codeblock">imagemDesktop: '<span class="hl">img-slider/nova-foto.jpeg</span>',
+        imagemMobile: '<span class="hl">img-slider/nova-foto-mobile.jpeg</span>',</div>
+
+      <div class="divider"></div>
+      <h3>5.6 — Editar os botões do banner</h3>
+      <p>Cada banner tem dois botões: <code>botaoPrincipal</code> e <code>botaoSecundario</code>.</p>
+      <div class="codeblock">botaoPrincipal: {
+        mostrar: <span class="hl">true</span>, <span class="cm">// true = mostrar, false = esconder</span>
+        texto: '<span class="hl">FALAR COM ESPECIALISTA</span>',
+        link: '<span class="hl">https://wa.me/5511999999999</span>',
+        icone: 'fa-arrow-right' <span class="cm">// não alterar</span>
+        },</div>
+      <div class="call">Para esconder um botão, troque <code>mostrar: true</code> para <code>mostrar: false</code>. Não
+        apague o bloco inteiro.</div>
+
+      <div class="divider"></div>
+      <h3>5.7 — Editar as especificações técnicas do banner</h3>
+      <p>Alguns banners mostram caixinhas de especificação (autonomia, potência etc.). Cada caixinha é um item na lista
+        <code>especificacoes</code>:</p>
+      <div class="codeblock">especificacoes: [
+        { icone: 'fa-solid fa-route', rotulo: '<span class="hl">ATE</span>', valor: '<span class="hl">55
+          &lt;span&gt;KM&lt;/span&gt;</span>', textoApoio: '<span class="hl">DE AUTONOMIA</span>' },
+        { icone: 'fa-solid fa-bolt', rotulo: '', valor: '<span class="hl">1000&lt;span&gt;W&lt;/span&gt;</span>',
+        textoApoio: '<span class="hl">POTENCIA NOMINAL</span>' },
+        ]</div>
+      <p>Para <strong>esconder todas</strong> as especificações de um banner:</p>
+      <div class="codeblock">mostrarEspecificacoes: <span class="hl">false</span>,</div>
+    </section>
+
+    <!-- ===== SEÇÃO 6 — MODELOS NA HOME ===== -->
+    <section class="sec">
+      <h2>6. Ativar ou editar modelos na vitrine da home</h2>
+      <p>A vitrine de modelos é controlada pelo arquivo:</p>
+      <div class="path">js / models-config.js</div>
+      <p style="margin-top:10px;">Abra-o pelo GitHub com o lápis ✏️ (Seção 4). Cada modelo é um bloco entre
+        <code>{</code> e <code>},</code>.</p>
+
+      <div class="divider"></div>
+      <h3>6.1 — Mostrar ou esconder um modelo</h3>
+      <div class="codeblock"><span class="cm">// Para mostrar o modelo na vitrine:</span>
+        visible: <span class="hl">true</span>,
+
+        <span class="cm">// Para esconder (modelo futuro ainda não lançado):</span>
+        visible: <span class="hl">false</span>,
+      </div>
+
+      <div class="divider"></div>
+      <h3>6.2 — Editar os dados de um modelo (ex.: DOHA)</h3>
+      <p>Localize o bloco do modelo desejado e edite os campos abaixo:</p>
+      <div class="codeblock">{
+        visible: true,
+        name: '<span class="hl">DOHA</span>', <span class="cm">// Nome exibido no card</span>
+        folder: '<span class="hl">doha</span>', <span class="cm">// Nome da pasta em modelos/</span>
+        description: '<span class="hl">Estrutura robusta, presença marcante...</span>',
+        link: 'modelos/doha/doha.html', <span class="cm">// não alterar</span>
+        accentColor: '<span class="hl">#e5b80b</span>', <span class="cm">// cor do destaque do card (hex)</span>
+        accentTextColor: '<span class="hl">#000000</span>', <span class="cm">// cor do texto sobre o destaque</span>
+        buttonLabel: '<span class="hl">Explorar Doha</span>', <span class="cm">// texto do botão do card</span>
+        colors: ['<span class="hl">Cinza</span>', '<span class="hl">Verde</span>', '<span class="hl">Azul</span>'] <span
+          class="cm">// opções de cor listadas</span>
+        },</div>
+
+      <div class="divider"></div>
+      <h3>6.3 — Ativar um modelo futuro (ex.: modelo-03)</h3>
+      <ol class="steps">
+        <li>
+          <div><strong>Suba as fotos do novo modelo</strong> na pasta <code>modelos/modelo-03/img/</code> (veja Seção
+            7). Inclua uma foto chamada <code>capa.jpg</code>.</div>
+        </li>
+        <li>
+          <div><strong>Abra o <code>models-config.js</code></strong> e localize o bloco <code>NOVO MODELO 3</code>.
+          </div>
+        </li>
+        <li>
+          <div><strong>Altere os campos:</strong><br>
+            <code>visible: false</code> → <code>visible: true</code><br>
+            <code>name</code>, <code>description</code>, <code>buttonLabel</code> e <code>colors</code> com os dados
+            reais do modelo.
+          </div>
+        </li>
+        <li>
+          <div><strong>Faça o commit</strong> com uma mensagem como <em>"Ativa modelo CLOUD na home"</em>.</div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== SEÇÃO 7 — ENVIAR IMAGENS ===== -->
+    <section class="sec alt">
+      <h2>7. Enviando imagens pelo GitHub</h2>
+      <p>Para trocar fotos de banners, capas ou galerias, você faz upload diretamente pelo GitHub — sem precisar de
+        programa extra.</p>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>Acesse o repositório e entre na pasta de destino</strong><br>
+            Banners: <code>img-slider/</code> &nbsp;|&nbsp; Capa DOHA: <code>modelos/doha/img/</code> &nbsp;|&nbsp; Capa
+            VIENNA: <code>modelos/vienna/img/</code>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Clique no botão "Add file" (acima da lista de arquivos) → "Upload files"</strong>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Arraste as imagens para a área pontilhada ou clique em "choose your files"</strong><br>
+            Formatos aceitos: <code>.jpg</code> <code>.jpeg</code> <code>.png</code> <code>.webp</code>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Aguarde o carregamento (barra de progresso)</strong><br>
+            Arquivos grandes podem demorar alguns segundos.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Role até "Commit changes", escreva uma mensagem e clique no botão verde</strong><br>
+            Ex.: <em>"Adiciona foto nova do DOHA"</em>, <em>"Troca banner desktop campanha junho"</em>.
+          </div>
+        </li>
+      </ol>
+
+      <div class="call g">
+        <strong>Dica — capa da home:</strong> a imagem de capa de cada modelo deve se chamar exatamente
+        <code>capa.jpg</code> (ou <code>.jpeg</code> / <code>.png</code> / <code>.webp</code>). Enviando uma nova imagem
+        com esse nome, ela substitui a anterior automaticamente.
+      </div>
+      <div class="call r" style="margin-top:10px;">
+        <strong>Tamanho máximo recomendado: 800 KB por imagem.</strong> Imagens maiores deixam o site lento. Reduza o
+        tamanho antes de enviar em: <code>squoosh.app</code> ou <code>tinypng.com</code> (gratuitos).
+      </div>
+    </section>
+
+    <!-- ===== SEÇÃO 8 — TEXTOS DE DOHA E VIENNA ===== -->
+    <section class="sec">
+      <h2>8. Editar textos e especificações de DOHA e VIENNA</h2>
+      <p>Cada modelo tem sua própria página HTML. Abra pelo GitHub com o lápis ✏️ (Seção 4).</p>
+
+      <div class="grid2">
+        <div class="card">
+          <h4>DOHA</h4>
+          <div class="path">modelos / doha / doha.html</div>
+        </div>
+        <div class="card">
+          <h4>VIENNA</h4>
+          <div class="path">modelos / vienna / vienna.html</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+      <h3>O que você pode editar nessas páginas:</h3>
+
+      <table class="mini-table">
+        <tr>
+          <th>Título do modelo</th>
+          <td>Texto grande no topo da página. Procure pela tag <code>&lt;h1&gt;</code>.</td>
+        </tr>
+        <tr>
+          <th>SKU / código</th>
+          <td>Código do produto exibido abaixo do título. Procure por algo como <code>DOHA-2024</code>.</td>
+        </tr>
+        <tr>
+          <th>Texto de apresentação</th>
+          <td>Parágrafo descritivo do modelo. Está dentro de uma tag <code>&lt;p&gt;</code>.</td>
+        </tr>
+        <tr>
+          <th>Cores disponíveis</th>
+          <td>Lista com os nomes das cores oferecidas. Procure pela lista de cores na página.</td>
+        </tr>
+        <tr>
+          <th>Tabelas de specs</th>
+          <td>Dados como potência, autonomia, freios, peso. Altere apenas os valores numéricos e textuais — não apague
+            as tags HTML.</td>
+        </tr>
+        <tr>
+          <th>Botão de interesse</th>
+          <td>Link e texto do botão de contato no final da página. Procure por <code>&lt;a href=</code> próximo ao final
+            do arquivo.</td>
+        </tr>
+      </table>
+
+      <div class="call y" style="margin-top:14px;">
+        <strong>Atenção ao editar HTML:</strong> troque apenas o texto que fica <em>entre</em> as tags. Não apague os
+        símbolos <code>&lt;</code> e <code>&gt;</code> nem os nomes das tags.
+        <br>Exemplo seguro: <code>&lt;h1&gt;<span style="color:#ffe87a">DOHA PRO</span>&lt;/h1&gt;</code> — altere
+        apenas o que está entre as tags.
+      </div>
+    </section>
+
+    <!-- ===== SEÇÃO 9 — TALLY ===== -->
+    <section class="sec alt">
+      <h2>9. Trocar o formulário de contato (Tally)</h2>
+      <p>O formulário da home usa a plataforma Tally. Para apontar para um novo formulário, você só precisa trocar o ID.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <div>
+            <strong>Crie ou abra o formulário no Tally</strong>
+            Acesse <code>https://tally.so</code>, faça login e abra o formulário desejado.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Copie o ID do formulário</strong>
+            O link do formulário publicado tem este formato:
+            <code>https://tally.so/r/<span style="color:#ffe87a">ABC123</span></code>. O ID é a parte final — no
+            exemplo, <code>ABC123</code>.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Abra o arquivo index.html pelo GitHub com o lápis ✏️</strong>
+            <div class="path">index.html</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Use Ctrl+F para localizar <code>TALLY_FORM_ID</code></strong>
+            Você vai encontrar uma linha parecida com esta:
+            <div class="codeblock">const TALLY_FORM_ID = '<span class="hl">ABC123</span>';</div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Substitua apenas o valor entre aspas pelo novo ID</strong>
+            Não altere o restante da linha.
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Faça o commit</strong> com a mensagem <em>"Atualiza ID do formulário Tally"</em>.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== SEÇÃO 10 — TEXTOS DA HOME ===== -->
+    <section class="sec">
+      <h2>10. Textos fixos da home (index.html)</h2>
+      <p>Além dos banners, alguns textos da home estão escritos diretamente no arquivo principal. Abra pelo GitHub com o
+        lápis ✏️ e use <strong>Ctrl+F</strong> para localizar o trecho.</p>
+      <div class="path">index.html</div>
+
+      <table class="mini-table" style="margin-top:14px;">
+        <tr>
+          <th>Seção de contato</th>
+          <td>Procure pelo texto atual da seção e substitua. Não altere as tags HTML ao redor.</td>
+        </tr>
+        <tr>
+          <th>"Ainda tem dúvidas?"</th>
+          <td>Procure pela frase exata para localizar e editar o bloco.</td>
+        </tr>
+        <tr>
+          <th>Botões fixos da home</th>
+          <td>Procure pelo texto do botão atual para localizar a linha e alterar o texto ou o link (<code>href</code>).
+          </td>
+        </tr>
+        <tr>
+          <th>Textos institucionais</th>
+          <td>Textos de seções como tecnologia, missão etc. Localize pela frase e edite apenas o conteúdo entre as tags.
+          </td>
+        </tr>
+      </table>
+
+      <div class="call y">
+        <strong>Recomendação:</strong> para campanhas, prefira sempre editar o
+        <code>js/campaign-banners-config.js</code> (Seção 5). O <code>index.html</code> é mais complexo — edite com
+        cuidado.
+      </div>
+    </section>
+
+    <!-- ===== SEÇÃO 11 — PÁGINAS LEGAIS ===== -->
+    <section class="sec alt">
+      <h2>11. Páginas legais e institucionais</h2>
+      <p>Essas páginas já existem e podem receber os textos finais. Abra cada uma pelo GitHub com o lápis ✏️ (Seção 4).
+      </p>
+
+      <div class="grid2" style="margin-bottom:14px;">
+        <div class="card">
+          <h4>Termos de Uso</h4>
+          <div class="path">termos.html</div>
+        </div>
+        <div class="card">
+          <h4>Privacidade</h4>
+          <div class="path">privacidade.html</div>
+        </div>
+      </div>
+      <div class="card" style="margin-bottom:14px;">
+        <h4>Garantia</h4>
+        <div class="path">garantia.html</div>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <div><strong>Abra o arquivo desejado no GitHub</strong> e clique no lápis ✏️.</div>
+        </li>
+        <li>
+          <div><strong>Localize a área de conteúdo</strong> — procure pelo texto de exemplo atual usando Ctrl+F.</div>
+        </li>
+        <li>
+          <div><strong>Substitua o texto de exemplo pelo texto jurídico oficial</strong>. Mantenha as tags
+            <code>&lt;p&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;ul&gt;</code> para formatar corretamente.</div>
+        </li>
+        <li>
+          <div><strong>Faça o commit</strong> com a mensagem <em>"Atualiza texto da política de privacidade"</em> (ou
+            similar).</div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== SEÇÃO 12 — ORDEM RECOMENDADA ===== -->
+    <section class="sec">
+      <h2>12. Ordem recomendada para uma atualização completa</h2>
+      <p>Siga esta sequência para não esquecer nenhum passo em uma troca de campanha.</p>
+
+      <ol class="steps">
+        <li>
+          <div><strong>Prepare as imagens novas</strong> no computador. Reduza o tamanho em <code>squoosh.app</code> se
+            necessário.</div>
+        </li>
+        <li>
+          <div><strong>Envie as imagens novas pelo GitHub</strong> para as pastas corretas (Seção 7).</div>
+        </li>
+        <li>
+          <div><strong>Edite os banners</strong> em <code>js/campaign-banners-config.js</code> — atualize título,
+            subtítulo, cor especial e caminho das imagens (Seção 5).</div>
+        </li>
+        <li>
+          <div><strong>Se algum modelo mudou</strong>, edite <code>js/models-config.js</code> para ativar/desativar ou
+            atualizar dados (Seção 6).</div>
+        </li>
+        <li>
+          <div><strong>Se os textos do DOHA ou VIENNA mudaram</strong>, edite o HTML de cada um (Seção 8).</div>
+        </li>
+        <li>
+          <div><strong>Se o formulário mudou</strong>, atualize o <code>TALLY_FORM_ID</code> no <code>index.html</code>
+            (Seção 9).</div>
+        </li>
+        <li>
+          <div><strong>Abra o site no navegador</strong> e verifique se tudo está correto. O site atualiza em até 1
+            minuto após o commit.</div>
+        </li>
+      </ol>
+
+      <div class="call g">
+        <strong>Histórico de alterações:</strong> cada commit fica registrado no GitHub com data, hora e quem fez. Se
+        algo der errado, o desenvolvedor consegue reverter para qualquer versão anterior — nada é perdido
+        permanentemente.
+      </div>
+    </section>
+
+    <p class="footer">Tutorial gerado para o cliente EVOX &nbsp;·&nbsp; Repositório: github.com/renan-barreto4/evox
+      &nbsp;·&nbsp; Visão 360° excluída deste documento.</p>
+
+  </div><!-- /page -->
+</body>
+
+</html>
