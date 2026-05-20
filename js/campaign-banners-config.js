@@ -25,7 +25,7 @@ window.campaignBannerSettings = {
 window.campaignBannersConfig = [
     {
         ativo: true,
-        imagemDesktop: 'img-slider/1.jpeg',
+        imagemDesktop: 'img-slider/1.png',
         imagemMobile: 'img-slider/1-mobile.jpeg',
         posicaoImagemDesktop: 'center center',
         posicaoImagemMobile: 'center center',
@@ -58,8 +58,37 @@ window.campaignBannersConfig = [
     },
     {
         ativo: true,
-        imagemDesktop: 'img-slider/3.jpeg',
-        imagemMobile: 'img-slider/3-mobile.jpeg',
+        imagemDesktop: 'img-slider/2.png',
+        imagemMobile: 'img-slider/2-mobile.png',
+        posicaoImagemDesktop: 'center center',
+        posicaoImagemMobile: 'center center',
+        corEspecial: 'amarelo',
+        titulo: 'SUA NOVA FORMA<br><span class="highlight"> DE SE MOVER</span> PELA CIDADE',
+        subtitulo: 'Potência elétrica, autonomia inteligente e design urbano premium.',
+        esconderSubtitulo: true,
+        esconderBotoes: false,
+        mostrarEspecificacoes: false,
+        mostrarEspecificacoesNoMobile: false,
+        mostrarBotaoSecundarioNoMobile: false,
+        botaoPrincipal: {
+            mostrar: true,
+            texto: 'FALAR COM ESPECIALISTA',
+            link: 'https://www.instagram.com/evox.oficial.br/',
+            icone: 'fa-arrow-right'
+        },
+        botaoSecundario: {
+            mostrar: false,
+            texto: 'VER TECNOLOGIA',
+            link: '#tecnologia-visual',
+            icone: 'fa-microchip'
+        },
+        especificacoes: [
+        ]
+    },
+    {
+        ativo: true,
+        imagemDesktop: 'img-slider/3.png',
+        imagemMobile: 'img-slider/3-mobile.png',
         posicaoImagemDesktop: 'center center',
         posicaoImagemMobile: 'center center',
         corEspecial: 'verde',
@@ -113,18 +142,18 @@ window.campaignBannersConfig = [
         especificacoes: []
     },
     {
-        ativo: false,
-        imagemDesktop: 'img-slider/5.jpeg',
-        imagemMobile: 'img-slider/5-mobile.jpeg',
+        ativo: true,
+        imagemDesktop: 'img-slider/5.png',
+        imagemMobile: 'img-slider/5-mobile.png',
         posicaoImagemDesktop: 'center center',
         posicaoImagemMobile: 'center center',
-        corEspecial: 'azul',
-        titulo: 'A CIDADE E <br><span class="highlight">SEU PALCO</span> AGORA.',
+        corEspecial: 'verde',
+        titulo: 'ENERGIA <br> INTELIGENTE <br><span class="highlight">EM MOVIMENTO</span> ',
         subtitulo: 'Mova-se com agilidade e design sofisticado por onde você passar.',
-        esconderSubtitulo: false,
+        esconderSubtitulo: true,
         esconderBotoes: false,
-        mostrarEspecificacoes: true,
-        mostrarEspecificacoesNoMobile: true,
+        mostrarEspecificacoes: false,
+        mostrarEspecificacoesNoMobile: false,
         mostrarBotaoSecundarioNoMobile: true,
         botaoPrincipal: {
             mostrar: true,
@@ -133,17 +162,13 @@ window.campaignBannersConfig = [
             icone: 'fa-arrow-right'
         },
         botaoSecundario: {
-            mostrar: true,
+            mostrar: false,
             texto: 'FALAR COM A EVOX',
             link: '#contato',
             icone: 'fa-play'
         },
         especificacoes: [
-            { icone: 'fa-solid fa-mobile-screen-button', rotulo: 'APP', valor: 'SMART', textoApoio: 'CONECTIVIDADE TOTAL' },
-            { icone: 'fa-solid fa-lightbulb', rotulo: 'ILUMINACAO', valor: 'FULL LED', textoApoio: 'MAXIMA VISIBILIDADE' },
-            { icone: 'fa-solid fa-wind', rotulo: 'CONFORTO', valor: 'PREMIUM', textoApoio: 'BANCO ERGONOMICO' },
-            { icone: 'fa-solid fa-fingerprint', rotulo: 'SEGURANCA', valor: 'START', textoApoio: 'CHAVE POR PRESENCA' },
-            { icone: 'fa-solid fa-toolbox', rotulo: 'MANUTENCAO', valor: 'MINIMA', textoApoio: 'MAIS PRATICIDADE' }
+
         ]
     }
 ];

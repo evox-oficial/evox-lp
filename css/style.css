@@ -285,7 +285,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(5, 8, 15, 0.8) 0%, transparent 60%);
+    display: none;
+    background: none;
     z-index: 1;
 }
 
@@ -311,7 +312,8 @@ body {
     justify-content: center;
     cursor: pointer;
     pointer-events: auto;
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -467,8 +469,8 @@ body {
     max-width: 250px;
     padding: 1rem 1.2rem;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -4673,8 +4675,8 @@ input[type=range]::-webkit-slider-thumb:hover {
     }
 
     .slider-overlay {
-        display: block !important;
-        background: linear-gradient(to bottom, rgba(5, 8, 15, 0.9) 0%, rgba(5, 8, 15, 0.2) 40%, rgba(5, 8, 15, 0.9) 100%) !important;
+        display: none !important;
+        background: none !important;
     }
 
     .hero-slider-button {
@@ -4750,7 +4752,8 @@ input[type=range]::-webkit-slider-thumb:hover {
         border-radius: 16px !important;
         background: rgba(255, 255, 255, 0.03) !important;
         border: 1px solid rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(14px);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
         flex-direction: row !important;
         text-align: left !important;
         align-items: center !important;
