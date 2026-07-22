@@ -11,8 +11,8 @@
     <link rel="icon" type="image/jpeg" href="images/Logo.jpeg">
     <script src="js/campaign-banners-config.js?v=2"></script>
     <script src="js/hero-config.js?v=2"></script>
-    <script src="js/models-config.js?v=2"></script>
-    <script src="js/vision-360-config.js?v=2"></script>
+    <script src="js/models-config.js?v=3"></script>
+    <script src="js/vision-360-config.js?v=3"></script>
     <script src="js/vision-360-manifest.js?v=1"></script>
 </head>
 
@@ -153,7 +153,7 @@
                 <div class="interactive-container">
                     <!-- Palco do Modelo/Imagem -->
                     <div class="interactive-stage" id="personalize-stage">
-                        <img src="images/personalize/doha/cinza/capa.jpg" alt="EVOX PERSONALIZAÇÃO"
+                        <img alt="EVOX PERSONALIZAÇÃO"
                             class="interactive-bike" id="personalize-bike">
                     </div>
 
@@ -185,7 +185,7 @@
                 <div class="interactive-container">
                     <!-- Palco do Modelo/Imagem -->
                     <div class="interactive-stage" id="vision-360-stage">
-                        <img src="images/visao-360/doha/cinza/capa.jpg" alt="EVOX 360" class="interactive-bike"
+                        <img alt="EVOX 360" class="interactive-bike"
                             id="vision-360-bike">
                     </div>
 
@@ -429,9 +429,9 @@
                         <div class="social-links-footer">
                             <a href="https://www.instagram.com/evox.oficial.br/" target="_blank" rel="noopener"><i
                                     class="fa-brands fa-instagram"></i></a>
-                            <a href="#contato"><i class="fa-brands fa-youtube"></i></a>
-                            <a href="#contato"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a href="#contato"><i class="fa-brands fa-x-twitter"></i></a>
+<!--                            <a href="#contato"><i class="fa-brands fa-youtube"></i></a>-->
+<!--                            <a href="#contato"><i class="fa-brands fa-linkedin-in"></i></a>-->
+<!--                            <a href="#contato"><i class="fa-brands fa-x-twitter"></i></a>-->
                         </div>
                     </div>
 
@@ -467,9 +467,9 @@
                 <div class="footer-bottom">
                     <p>&copy; 2026 EVOX Mobility. Todos os direitos reservados.</p>
                     <div class="legal-links">
-                        <a href="termos.html">Termos de Uso</a>
-                        <a href="privacidade.html">Privacidade</a>
-                        <a href="garantia.html">Garantia</a>
+                        <a href="/termos">Termos de Uso</a>
+                        <a href="/privacidade">Privacidade</a>
+                        <a href="/garantia">Garantia</a>
                     </div>
                 </div>
             </footer>
@@ -1061,31 +1061,6 @@
                 return [];
             }
 
-            async function getVisionDirectoryFrames(folderPath) {
-                if (!folderPath) return [];
-
-                try {
-                    const response = await fetch(`${folderPath}/`, { cache: 'no-store' });
-                    const contentType = response.headers.get('content-type') || '';
-
-                    if (!response.ok || !contentType.includes('text/html')) {
-                        return [];
-                    }
-
-                    const html = await response.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const imagePaths = [...doc.querySelectorAll('a[href]')]
-                        .map((anchor) => anchor.getAttribute('href'))
-                        .filter((href) => typeof href === 'string' && /\.(avif|gif|jpe?g|png|svg|webp)$/i.test(href))
-                        .map((href) => `${folderPath}/${decodeURIComponent(href.split('/').pop() || '')}`);
-
-                    return [...new Set(imagePaths)].sort((first, second) => first.localeCompare(second, 'pt-BR', { numeric: true, sensitivity: 'base' }));
-                } catch (error) {
-                    return [];
-                }
-            }
-
             function canLoadImage(imagePath) {
                 return new Promise((resolve) => {
                     if (!imagePath) {
@@ -1166,18 +1141,18 @@
                 const rotateButton = document.getElementById('vision-rotate-btn');
                 if (!bike360) return;
 
-                // Candidate frames for 360 viewer (assuming up to 36 images)
+                // Candidatos a frame do giro 360, baseados no que realmente existe
+                // em images/visao-360 (config: spinTotalFrames / spinExtension).
                 const base360Path = 'images/visao-360';
+                const spinConfig = window.vision360Config || {};
+                const spinTotalFrames = Number(spinConfig.spinTotalFrames) || 0;
+                const spinExtension = spinConfig.spinExtension || 'jpg';
                 const candidates360 = [];
-                for (let i = 1; i <= 36; i++) {
-                    candidates360.push(`${base360Path}/${i}.png`);
-                    candidates360.push(`${base360Path}/${i}.jpg`);
-                    candidates360.push(`${base360Path}/${String(i).padStart(2, '0')}.png`);
-                    candidates360.push(`${base360Path}/${String(i).padStart(2, '0')}.jpg`);
+                for (let i = 1; i <= spinTotalFrames; i++) {
+                    candidates360.push(`${base360Path}/${i}.${spinExtension}`);
                 }
 
-                let directoryFrames360 = await getVisionDirectoryFrames(base360Path);
-                let frames360 = directoryFrames360.length > 0 ? directoryFrames360 : await getExistingVisionFrames(candidates360);
+                let frames360 = await getExistingVisionFrames(candidates360);
 
                 vision360State.frames = [...new Set(frames360)].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
                 vision360State.frameIndex = 0;

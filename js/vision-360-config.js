@@ -7,6 +7,9 @@
  * 3. Se houver apenas uma imagem, `img.jpg` ou `capa.jpg` tambem funcionam.
  * 3. Se quiser usar `.png`, `.jpeg` ou `.webp`, basta manter o mesmo nome-base.
  * 4. Para alterar a ordem, cores ou modelos, edite apenas este arquivo.
+ * 5. Passe o 5o argumento de `buildVisionColor` (ex.: 'img.jpg') quando ja
+ *    souber o nome exato do arquivo - evita 404 no console tentando outros
+ *    nomes/extensoes. Se omitir, o site tenta varias opcoes automaticamente.
  */
 
 (function () {
@@ -56,41 +59,50 @@
         ];
     }
 
-    function buildVisionColor(modelFolder, colorFolder, label, swatch) {
+    function buildVisionColor(modelFolder, colorFolder, label, swatch, fileName) {
         return {
             id: colorFolder,
             label,
             swatch,
             personalizeFolderPath: `images/personalize/${modelFolder}/${colorFolder}`,
             visionFolderPath: `images/visao-360/${modelFolder}/${colorFolder}`,
-            imageCandidates: getPersonalizeCandidates(modelFolder, colorFolder),
+            // Se `fileName` for informado, usa direto (zero tentativas erradas no console).
+            // Sem `fileName`, tenta varios nomes/extensoes ate achar um que exista.
+            imageCandidates: fileName
+                ? [`images/personalize/${modelFolder}/${colorFolder}/${fileName}`]
+                : getPersonalizeCandidates(modelFolder, colorFolder),
             frameCandidates: getVisionFrameCandidates(modelFolder, colorFolder)
         };
     }
 
     window.vision360Config = {
         defaultModel: 'doha',
+        // Giro 360 compartilhado (secao "VISAO 360"): as imagens ficam soltas em
+        // images/visao-360/1.png, 2.png, 3.png, ... (sem subpasta por modelo/cor).
+        // Ao adicionar/remover fotos nessa pasta, atualize `spinTotalFrames` e
+        // `spinExtension` para bater com a quantidade e o formato reais -
+        // isso evita tentativas erradas (404) no console.
+        spinTotalFrames: 5,
+        spinExtension: 'jpg',
         models: [
             {
                 id: 'doha',
                 label: 'DOHA',
                 colors: [
-                    buildVisionColor('doha', 'cinza', 'Cinza', '#7d838c'),
-                    buildVisionColor('doha', 'verde', 'Verde', '#1f8a4d'),
-                    buildVisionColor('doha', 'azul-claro', 'Azul Claro', '#8ed9ff'),
-                    buildVisionColor('doha', 'vermelho', 'Vermelho', '#c73333'),
-                    buildVisionColor('doha', 'branco', 'Branco', '#f3f4f6'),
-                    buildVisionColor('doha', 'azul', 'Azul', '#0b63ce')
+                    buildVisionColor('doha', 'verde', 'Verde', '#1f8a4d', 'img.jpg'),
+                    buildVisionColor('doha', 'azul-claro', 'Azul Claro', '#8ed9ff', 'img.jpg'),
+                    buildVisionColor('doha', 'branco', 'Branco', '#f3f4f6', 'img.jpg')
+                    // Cores 'cinza', 'vermelho' e 'azul' ficam ocultas ate ter fotos em images/personalize/doha/<cor>/
                 ]
             },
             {
                 id: 'vienna',
                 label: 'VIENNA',
                 colors: [
-                    buildVisionColor('vienna', 'prata', 'Prata', '#c0c7cf'),
-                    buildVisionColor('vienna', 'cinza', 'Cinza', '#7d838c'),
-                    buildVisionColor('vienna', 'preto', 'Preto', '#111111'),
-                    buildVisionColor('vienna', 'branco', 'Branco', '#f3f4f6')
+                    buildVisionColor('vienna', 'prata', 'Prata', '#c0c7cf', 'img.png'),
+                    buildVisionColor('vienna', 'preto', 'Preto', '#111111', 'img.png'),
+                    buildVisionColor('vienna', 'branco', 'Branco', '#f3f4f6', 'img.png')
+                    // Cor 'cinza' fica oculta ate ter fotos em images/personalize/vienna/cinza/
                 ]
             }
         ]

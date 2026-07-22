@@ -58,7 +58,7 @@ window.campaignBannersConfig = [
     },
     {
         ativo: true,
-        imagemDesktop: 'img-slider/2.png',
+        imagemDesktop: 'img-slider/2.jpg',
         imagemMobile: 'img-slider/2-mobile.png',
         posicaoImagemDesktop: 'center center',
         posicaoImagemMobile: 'center center',
