@@ -28,9 +28,8 @@
         return [...new Set(imagePaths)];
     }
 
-    function toCurrentFolderImagePath(imagePath) {
-        const fileName = typeof imagePath === 'string' ? imagePath.split('/').pop() || '' : '';
-        return fileName ? `img/${fileName}` : '';
+    function toAbsoluteImagePath(imagePath) {
+        return typeof imagePath === 'string' && imagePath ? `/${imagePath}` : '';
     }
 
     function getManifestImages(folder) {
@@ -41,11 +40,11 @@
             return [];
         }
 
-        const currentFolderImages = modelImages
-            .map(toCurrentFolderImagePath)
+        const absoluteImages = modelImages
+            .map(toAbsoluteImagePath)
             .filter(Boolean);
 
-        return sortImages(dedupeImages(currentFolderImages));
+        return sortImages(dedupeImages(absoluteImages));
     }
 
     function renderGallery(imagePaths, modelName) {
