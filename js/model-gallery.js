@@ -1,6 +1,4 @@
 (function () {
-    const IMAGE_EXTENSION_REGEX = /\.(avif|gif|jpe?g|png|svg|webp)$/i;
-
     function getCurrentModelFolder() {
         const pathParts = window.location.pathname.split('/').filter(Boolean);
         const modelosIndex = pathParts.lastIndexOf('modelos');
@@ -48,34 +46,6 @@
             .filter(Boolean);
 
         return sortImages(dedupeImages(currentFolderImages));
-    }
-
-    function isImageHref(href) {
-        return typeof href === 'string' && IMAGE_EXTENSION_REGEX.test(href);
-    }
-
-    async function getDirectoryImages() {
-        try {
-            const response = await fetch('./img/', { cache: 'no-store' });
-            const contentType = response.headers.get('content-type') || '';
-
-            if (!response.ok || !contentType.includes('text/html')) {
-                return [];
-            }
-
-            const html = await response.text();
-            const parser = new DOMParser();
-            const documentFromDirectory = parser.parseFromString(html, 'text/html');
-
-            const imagePaths = [...documentFromDirectory.querySelectorAll('a[href]')]
-                .map((anchor) => anchor.getAttribute('href'))
-                .filter(isImageHref)
-                .map((href) => `img/${decodeURIComponent(href.split('/').pop() || '')}`);
-
-            return sortImages(dedupeImages(imagePaths));
-        } catch (error) {
-            return [];
-        }
     }
 
     function renderGallery(imagePaths, modelName) {
@@ -160,16 +130,14 @@
         });
     }
 
-    async function initModelGallery() {
+    function initModelGallery() {
         if (!document.body.classList.contains('product-page') && !document.body.dataset.enableModelGallery) {
             return;
         }
 
         const folder = getCurrentModelFolder();
         const modelName = document.body.dataset.modelName || document.querySelector('.product-info h1, [data-model-title]')?.textContent?.trim() || 'Modelo';
-        const directoryImages = await getDirectoryImages();
-        const fallbackImages = getManifestImages(folder);
-        const galleryImages = directoryImages.length > 0 ? directoryImages : fallbackImages;
+        const galleryImages = getManifestImages(folder);
 
         renderGallery(galleryImages, modelName);
     }

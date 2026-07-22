@@ -150,7 +150,11 @@ body {
     left: 60px;
     z-index: 1000;
     transition: all 0.4s ease;
-    background: transparent;
+    background: rgb(255 255 255 / 25%);
+    /*background: rgba(5, 8, 15, 0.9);*/
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
 .top-bar.scrolled {
@@ -271,7 +275,7 @@ body {
     background-position: top center;
     opacity: 0;
     transition: opacity 1.5s ease-in-out;
-    filter: brightness(0.7);
+    filter: brightness(0.6);
     /* Melhora contraste do texto */
 }
 
@@ -367,9 +371,11 @@ body {
 }
 
 .hero-content p {
-    color: var(--text-muted);
+    /*color: var(--text-muted);*/
+    color: var(--text-light);;
     font-size: 1.1rem;
-    max-width: 85%;
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 2.5rem;
     line-height: 1.5;
 }
@@ -463,7 +469,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
     text-align: center;
     flex: 1;
     max-width: 250px;
@@ -829,7 +835,7 @@ body {
 
 /* SEﾃ�グ DIFERENCIAIS */
 .diferenciais-section {
-    padding: 2rem 4% 2rem 4%;
+    padding: 6rem 4% 6rem 4%;
     background: linear-gradient(to bottom, transparent 0%, var(--primary-bg) 15%, var(--primary-bg) 100%);
     position: relative;
     z-index: 10;
@@ -858,7 +864,7 @@ body {
 .diferenciais-header p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 1.5rem;
 }
 
 .diferenciais-grid {
@@ -943,7 +949,7 @@ body {
 
 .showcase-header {
     text-align: center;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
 }
 
 .showcase-header h2 {
@@ -961,7 +967,7 @@ body {
 .showcase-header p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 1.5rem;
 }
 
 .showcase-grid {
@@ -1212,7 +1218,7 @@ body {
 }
 
 .interactive-section {
-    padding: 2rem 4% 2rem 4%;
+    padding: 6rem 4% 6rem 4%;
     background: var(--primary-bg);
     position: relative;
     z-index: 10;
@@ -1221,6 +1227,7 @@ body {
 
 .interactive-header {
     text-align: center;
+    margin-bottom: 4rem;
 }
 
 .interactive-header h2 {
@@ -1238,7 +1245,7 @@ body {
 .interactive-header p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 1.5rem;
 }
 
 .interactive-container {
@@ -1698,7 +1705,7 @@ input:checked+.slider:before {
 
 /* SEﾃ�グ TECNOLOGIA VISUAL */
 .tech-visual-section {
-    padding: 2rem 4% 2rem 4%;
+    padding: 6rem 4% 6rem 4%;
     background: linear-gradient(to bottom, var(--primary-bg) 0%, #0a0d14 100%);
     position: relative;
     z-index: 10;
@@ -1707,7 +1714,7 @@ input:checked+.slider:before {
 
 .tech-visual-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
 }
 
 .tech-visual-header h2 {
@@ -1725,7 +1732,7 @@ input:checked+.slider:before {
 .tech-visual-header p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 1.5rem;
 }
 
 .tech-visual-grid {
@@ -2229,7 +2236,7 @@ input:checked+.slider:before {
 /* SEﾃ�グ SIMULADOR DE ECONOMIA */
 /* SECAO ENTRE EM CONTATO */
 .contact-section {
-    padding: 2rem 4%;
+    padding: 6rem 4%;
     background:
         radial-gradient(circle at 15% 20%, rgba(46, 204, 113, 0.16), transparent 32%),
         linear-gradient(135deg, var(--primary-bg) 0%, #081521 100%);
@@ -2419,7 +2426,7 @@ input:checked+.slider:before {
 }
 
 .calculator-section {
-    padding: 2rem 4% 2rem 4%;
+    padding: 6rem 4% 6rem 4%;
     background: linear-gradient(135deg, var(--primary-bg) 0%, #071522 100%);
     position: relative;
     z-index: 10;
@@ -2448,7 +2455,7 @@ input:checked+.slider:before {
 .calc-header p {
     color: var(--text-muted);
     font-size: 1.1rem;
-    margin-top: 10px;
+    margin-top: 1.5rem;
 }
 
 .calc-container {
@@ -2876,13 +2883,13 @@ input[type=range]::-webkit-slider-thumb:hover {
     gap: 8px;
 }
 
-.footer-links-list a::before {
-    content: '竊�';
-    font-size: 0.8rem;
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s ease;
-}
+/*.footer-links-list a::before {*/
+/*    content: '竊�';*/
+/*    font-size: 0.8rem;*/
+/*    opacity: 0;*/
+/*    transform: translateX(-10px);*/
+/*    transition: all 0.3s ease;*/
+/*}*/
 
 .footer-links-list a:hover {
     color: var(--accent-color);
@@ -2921,7 +2928,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     gap: 12px;
     justify-content: center;
     width: 100%;
-    padding: 1.2rem 2.8rem;
+    padding: 1.2rem 2rem;
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     color: #fff;
     text-decoration: none;
@@ -2947,7 +2954,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #555;
+    color: #ffffff;
     font-size: 0.9rem;
 }
 
@@ -2957,7 +2964,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 }
 
 .legal-links a {
-    color: #555;
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -3176,7 +3183,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 
 /* SEﾃ�グ FALE COM ESPECIALISTA */
 .faq-section {
-    padding: 100px 4% 30px;
+    padding: 6rem 4% 2rem;
     position: relative;
     z-index: 11;
     isolation: isolate;
@@ -3536,7 +3543,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     gap: 60px;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 4% 80px;
+    padding: 4rem 4% 80px;
 }
 
 /* Galeria Imersiva */
@@ -3767,14 +3774,14 @@ input[type=range]::-webkit-slider-thumb:hover {
 
 @media (max-width: 992px) {
     .product-page {
-        padding-top: 20px;
+        padding: 2rem 1rem;
     }
 
     .product-detail {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: 0 5% 40px;
+        padding: 2rem 5% 40px;
     }
 
     .back-link {
@@ -4160,6 +4167,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     .interactive-stage {
         min-height: 300px !important;
         margin: 20px 0 !important;
+        order: 2;
     }
 
     .interactive-bike {
@@ -4238,6 +4246,7 @@ input[type=range]::-webkit-slider-thumb:hover {
 @media (max-width: 768px) {
     .interactive-section {
         display: block !important;
+        padding: 4rem 4% 4rem 4%;
     }
 
     /* Remove o link do menu mobile para n縊 levar a uma se鈬o vazia */
@@ -4386,6 +4395,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     .stores-header p {
         font-size: 0.9rem !important;
         line-height: 1.4 !important;
+        margin: 1rem 0 2rem !important;
     }
 
     /* T咜ulos de Cards menores */
@@ -4813,7 +4823,15 @@ input[type=range]::-webkit-slider-thumb:hover {
     .interactive-container,
     .simulator-container,
     .contact-container {
-        gap: 1rem !important;
+        gap: 2rem !important;
+    }
+
+    .contact-container {
+        padding: 2rem;
+    }
+
+    .lead-form {
+        padding: 1rem;
     }
 
     .dif-card,
@@ -4918,7 +4936,11 @@ input[type=range]::-webkit-slider-thumb:hover {
     .cta-specialist-section,
     .faq-section,
     .stores-section {
-        padding: 2.5rem 1rem 0 1rem !important
+        padding: 4rem 1rem 0 1rem !important
+    }
+
+    .tech-visual-section {
+        padding: 4rem 1rem 4rem 1rem !important
     }
 
     .manifesto-col,
@@ -5143,7 +5165,7 @@ input[type=range]::-webkit-slider-thumb:hover {
     }
 
     .showcase-info {
-        padding: 0rem 2rem !important;
+        padding: 1.5rem 2rem !important;
     }
 }
 
